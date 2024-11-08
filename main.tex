@@ -3,6 +3,7 @@
 \usepackage{sbc-template}
 
 \usepackage{graphicx,url}
+\usepackage{tabularx}
 
 \usepackage[brazil]{babel}   
 \usepackage[utf8]{inputenc}
@@ -32,11 +33,9 @@
 \end{abstract}
 
 \section{Introdução}
-O campus de Campo Grande da UFMS conta com uma vasta área que é ocupada por diversas faculdades, institutos e blocos em geral. Este fato dificulta que visitantes, alunos e até mesmo docentes conheçam ou encontrem grande parte da UFMS. Dessa forma, foi criado o Encontre na UFMS, um aplicativo que visa centralizar locais e pontos de interesse no campus da UFMS de Campo Grande.
+O campus de Campo Grande da UFMS conta com uma vasta área que é ocupada por diversas faculdades, institutos e blocos em geral. Este fato dificulta que visitantes, alunos e até mesmo docentes conheçam ou encontrem locais presentes na UFMS. Dessa forma, foi criado o Encontre na UFMS, um aplicativo que visa centralizar locais e pontos de interesse no campus da UFMS de Campo Grande.
 
-Com o intuito da comunidade UFMS ter a possibilidade de localizar e centralizar os locais presentes no campus de Campo Grande da UFMS, de modo que a ser possível ter cooperatividade pela comunidade acadêmica, foi planejado e criado o aplicativo Encontre na UFMS.
-
-O principal objetivo do aplicativo é permitir buscar e localizar pontos de interesse dentro do campus, de modo que o usuário consiga informações de como chegar ao local, além de outras informações que possam ser pertinentes para conhecimento geral e do indivíduo. Centralizando em apenas um aplicativo i
+O principal objetivo do aplicativo é permitir buscar e localizar pontos de interesse dentro do campus, de modo que o usuário consiga informações de como chegar ao local, além de outras informações que possam ser pertinentes para conhecimento geral e do indivíduo. O aplicativo tem o intuito de ser cooperativo para a comunidade acadêmica, de forma que todos possam contribuir para atualização constante do mesmo. Além de permitir ao usuário facilidade para acesso e também utilização.
 
 \section{Trabalhos Relacionados}
 
@@ -51,12 +50,14 @@ O Localização UFMS é um aplicativo web que disponibiliza um mapa interativo d
 Nesta seção, apresentaremos uma visão geral dos principais conceitos e tecnologias utilizadas no desenvolvimento do aplicativo Encontre na UFMS, abrangendo desde o ambiente de backend até a interface do usuário no frontend.
 
 \subsection{Backend: Fastify, Drizzle e MySQL}
-O Backend foi desenvolvido utilizando o framework Fastify com Node.js, permitindo um alto desempenho com grande velocidade de requisições, comparados à outros frameworks. Além da utilização de Typescript para maior seguridade de erros de tipagem durante o processo de desenvolvimento.
+O Backend foi desenvolvido utilizando o framework Fastify com Node.js, permitindo um alto desempenho com grande velocidade de requisições, comparados à outros frameworks, juntamente com a facilidade de utilização. Além da utilização de Typescript para maior seguridade de erros de tipagem durante o processo de desenvolvimento.
 
 Para armazenamento dos dados utilizados no Backend foi utilizado o MySQL, um sistema de gerenciamento de banco de dados relacional Open Source que disponibiliza confiabilidade e desempenho. Para a conexão entre o Node.js com o MySql, foi utilizado o Drizzle, sendo um mapeador de objetos cujo o foco é a velocidade de entrega de dados realizada entre as duas ferramentas.
 
 \subsection{Login}
-Os usuários tem a possibilidade de se cadastrarem no aplicativo, sendo um requisito não obrigatório. Em caso de usuário logado, serão trocados tokens para garantirem a segurança do usuário e de suas informações utilizando o JWT
+Os usuários tem a possibilidade de se cadastrarem no aplicativo, sendo um requisito não obrigatório. No caso de usuários logados no sistema, são utilizados tokens JWT ou JSON Web Token para autenticação, garantindo ao acesso ao sistema de forma segura e eficaz.
+
+Para o envio de emails para o usuário recuperar a senha de sua conta, foi utilizado o MailJet, uma ferramenta que fornece acesso a APIs para envio de emails e mensagens de texto sms.
 
 \subsection{Frontend: Flutter}
 O frontend foi desenvolvido utilizando a ferramenta Flutter, um framework para a linguagem Dart e que pertence ao Google. Tanto o Dart quanto o Flutter foram criados principalmente para possibilitar o desenvolvimento de aplicativos móveis. Por se tratar de uma ferramenta relativamente nova, possui apenas 7 anos desde o seu lançamento, ela se aproveita de vários padrões já bem estabelecidos em outras linguagens e frameworks para criar um ambiente moderno e de fácil adequação para os desenvolvedores.
@@ -75,7 +76,10 @@ Diversas bibliotecas e dependências foram utilizadas no desenvolvimento do apli
 
 \begin{itemize}
   \item \textbf{Fastify}: Framework para desenvolvimento de aplicações web com Node.js.
+  \item \textbf{Typescript}: Biblioteca que adiciona tipagem ao javascript.
+  \item \textbf{MySQL}: MySQL é um sistema de gerenciamento de banco de dados relacional de código aberto baseado em SQL.
   \item \textbf{Drizzle}: Mapeador de objetos para conexão entre Node.js e MySQL.
+  \item \textbf{MailJet}: Ferramenta para envio de emails e sms.
   \item \textbf{Flutter}: Framework para desenvolvimento de aplicativos móveis.
   \item \textbf{Dart}: Linguagem de programação utilizada no Flutter.
   \item \textbf{hive}: Banco de dados não relacional utilizado para armazenamento local.
@@ -87,6 +91,31 @@ Diversas bibliotecas e dependências foram utilizadas no desenvolvimento do apli
 Todas essas bibliotecas e dependências, bem como outras que não foram aqui citadas mas encontram-se especificadas nos projetos do frontend e do backend, foram fundamentais para o desenvolvimento do aplicativo Encontre na UFMS, permitindo a implementação de funcionalidades essenciais e a integração entre o backend e o frontend.
 
 \section{Solução Implementada}
+
+O aplicativo Encontre na UFMS foi desenvolvido com o intuito de facilitar a navegação pelo campus da UFMS em Campo Grande, permitindo que usuários encontrem e localizem pontos de interesse dentro do campus, estes sendo cadastrados por outros usuários, possibilitando que locais que não estão presentes em outros aplicativos de localização sejam documentados e compartilhados com a comunidade acadêmica. Os usuários também terão poder de avaliar os locais cadastrados, podendo assim, ajudar outros usuários a escolherem o melhor local para suas necessidades.
+
+\subsection{Análise Crítica e contribuição do Encontre na UFMS}
+Para podermos analisar o diferencial do aplicativo Encontre na UFMS podemos compará-lo com os aplicativos Google Maps e Localização UFMS. O Google Maps é um aplicativo de geolocalização muito utilizado no mundo todo, porém, ele não é focado em um local específico, como o campus da UFMS, e sim em todo o mundo, sendo assim ele não possui registrado diversos locais de menor escala mas que podem ser de grande importância para algum visitante ou alunos. Já o Localização UFMS é um aplicativo web que disponibiliza um mapa interativo da UFMS que possui mais de 2900 pontos de interesse registrados, porém, ele não possui alguns pontos de interesse que podem ser de grande importância para a comunidade acadêmica, como por exemplo, o Restaurante Universitário e também não informa ao usuário como chegar até o local desejado já que ele é focado em apenas mostrar informações sobre um certo local, ele também não tem fotos de todos os locais e não é colaborativo uma vez que apenas a administração da UFMS pode adicionar novos locais.
+
+\subsection{Comparação entre o Encontre na UFMS e outros aplicativos}
+\begin{table}[h]
+\begin{tabularx}{\textwidth}{|X|X|X|X|}
+\hline
+\textbf{Características} & \textbf{Google Maps} & \textbf{Localização UFMS} & \textbf{Encontre na UFMS} \\ \hline
+\textbf{Objetivo Principal} & Geolocalização global & Mapa interativo da UFMS & Navegação pelo campus da UFMS \\ \hline
+\textbf{Público-Alvo} & Usuários em geral & Comunidade acadêmica da UFMS & Comunidade acadêmica da UFMS \\ \hline
+\textbf{Principais Funcionalidades} & Busca de locais, rotas, informações de contato, horários de funcionamento & Busca de locais no campus, informações sobre pontos de interesse & Busca de locais, rotas, cadastro colaborativo de locais, avaliações de locais \\ \hline
+\end{tabularx}
+\caption{Comparação entre aplicativos de localização}
+\footnotesize  \centering{\textbf{Fonte: Autor original}}
+\label{tab:comparacao-aplicativos}
+\end{table}
+
+\subsection{Implementação}
+
+
+O backend foi desenvolvido utilizando o framework Fastify, a fim de garantir excelente desempenho em velocidade e segurança, possuindo uma arquitetura escalável, sendo programado em Typescript para melhor conhecimento de tipos durante o desenvolvimento, evitando erros desnecessários.
+
 \section{Considerações Finais}
 \section{Trabalhos Futuros}
 

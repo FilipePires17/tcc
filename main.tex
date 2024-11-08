@@ -63,12 +63,28 @@ O frontend foi desenvolvido utilizando a ferramenta Flutter, um framework para a
 
 Uma das grandes preocupações ao se desenvolver um aplicativo móvel é a gerência de possíveis estados enquanto o usuário navega e interage com este aplicativo, como fazer telas conversarem entre si e como manter a experiência o mais contínua e suave possível. Para isso é muito importante separar a apresentação dos dados para o usuário da lógica de negócios que faz todo o tratamento desses dados. A fim de exercer esse papel foi utilizdo o padrão BLoC (Business Logic Component), com a biblioteca flutter\_bloc, que permite acessar todo o estado da aplicação a qualquer momento e também dispara eventos quando certos estados mudam para que a apresentação dos dados esteja sempre atualizada.
 
-Diversas bibliotecas foram utilizadas no desenvolvimento. Entre elas, para armazenar localmente o token do usuário logado foi utilizado o Hive, um banco de dados não relacional que tem como principais características a leveza e a rapidez. O mini mapa que é utilizado para mostrar a localização e para cadastrar um novo local facilitando o processo para o usuário foi implementado utilizando a biblioteca google\_maps\_flutter desenvolvido pela própria equipe do Flutter. 
+Para armazenar localmente o token do usuário logado foi utilizado o Hive, um banco de dados não relacional que tem como principais características a leveza e a rapidez. O mini mapa que é utilizado para mostrar a localização e para cadastrar um novo local facilitando o processo para o usuário foi implementado utilizando a biblioteca google\_maps\_flutter desenvolvido pela própria equipe do Flutter. 
 
 \subsection{Ambiente de desenvolvimento: Visual Studio Code}
 O ambiente de desenvolvimento escolhido foi o Visual Studio Code, uma das IDEs mas utilizadas no mundo graças ao grande número de ferramentas que podem ser integradas nela para aumentar as funcionalidades de desenvolvimento, teste e depuração.
 
 Foi utilizado também o Android SDK (Software Development Kit), que é um conjunto de ferramentas que permite o desenvolvimento de aplicativos para a plataforma Android. Ele inclui um depurador, bibliotecas, um emulador de dispositivo baseado em QEMU, documentação, amostras de código e tutoriais.
+
+\subsection{Bibiliotecas e Dependências}
+Diversas bibliotecas e dependências foram utilizadas no desenvolvimento do aplicativo Encontre na UFMS, dentre elas destacam-se:
+
+\begin{itemize}
+  \item \textbf{Fastify}: Framework para desenvolvimento de aplicações web com Node.js.
+  \item \textbf{Drizzle}: Mapeador de objetos para conexão entre Node.js e MySQL.
+  \item \textbf{Flutter}: Framework para desenvolvimento de aplicativos móveis.
+  \item \textbf{Dart}: Linguagem de programação utilizada no Flutter.
+  \item \textbf{hive}: Banco de dados não relacional utilizado para armazenamento local.
+  \item \textbf{google\_maps\_flutter}: Biblioteca para implementação de mapas no Flutter.
+  \item \textbf{flutter\_bloc}: Biblioteca para gerenciamento de estados no Flutter.
+  \item \textbf{dio}: Biblioteca para requisições HTTP no Flutter.
+\end{itemize}
+
+Todas essas bibliotecas e dependências, bem como outras que não foram aqui citadas mas encontram-se especificadas nos projetos do frontend e do backend, foram fundamentais para o desenvolvimento do aplicativo Encontre na UFMS, permitindo a implementação de funcionalidades essenciais e a integração entre o backend e o frontend.
 
 \section{Solução Implementada}
 \section{Considerações Finais}

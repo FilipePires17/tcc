@@ -22,101 +22,18 @@
 
 \maketitle
 
-\begin{resumo} 
-  A exploração espacial está em plena expansão mundo afora e a estimativa é que todo investimento na cadeia produtiva do setor, traga um retorno considerável. Países que antes não investiam em “espaço”, mudaram essa postura a fim de priorizar o setor e todos os benefícios que ele pode trazer.
-  Parte da população brasileira ainda não se atentou a importância que as pesquisas espaciais exercem em nosso dia a dia, sendo responsável por diversas facilidades em nossas vidas. A partir do desenvolvimento de foguetes, por exemplo, surgem produtos que são utilizados em nosso cotidiano, gerando uma melhor qualidade de vida para a população.
-\end{resumo}
+\input{resumo}
 
-\begin{abstract}
-  Space exploration is booming around the world and it is estimated that every investment in the sector's production chain will bring a considerable return. Countries that previously did not invest in “space” have changed their stance in order to prioritize the sector and all the benefits it can bring.
-  Part of the Brazilian population has not yet paid attention to the importance that space research plays in our daily lives, being responsible for several things that make our lives easier. From those researches products that are used in our daily life are developed, generating a better quality of life for the population.
-\end{abstract}
+\input{introducao}
 
-\section{Introdução}
-O campus de Campo Grande da UFMS conta com uma vasta área que é ocupada por diversas faculdades, institutos e blocos em geral. Este fato dificulta que visitantes, alunos e até mesmo docentes conheçam ou encontrem locais presentes na UFMS. Dessa forma, foi criado o Encontre na UFMS, um aplicativo que visa centralizar locais e pontos de interesse no campus da UFMS de Campo Grande.
+\input{trabalhos_relacionados}
 
-O principal objetivo do aplicativo é permitir buscar e localizar pontos de interesse dentro do campus, de modo que o usuário consiga informações de como chegar ao local, além de outras informações que possam ser pertinentes para conhecimento geral e do indivíduo. O aplicativo tem o intuito de ser cooperativo para a comunidade acadêmica, de forma que todos possam contribuir para atualização constante do mesmo. Além de permitir ao usuário facilidade para acesso e também utilização.
+\input{referencial_teorico}
 
-\section{Trabalhos Relacionados}
+\input{solucao_implementada}
 
-Na seção de trabalhos relacionados, abordamos aplicativos existentes que têm objetivos semelhantes ao do aplicativo Encontre na UFMS e que podem fornecer insights úteis para seu desenvolvimento e implementação. Dois aplicativos relevantes nesse contexto são Google Maps[x] da Google LLC e Localização UFMS[x] da UFMS.
+\input{consideracoes_finais}
 
-O Google Maps é altamente utilizado no mundo todo diariamente como ferramenta de geolocalização. Ele possui diversas funcionalidades, uma das principais é encontrar um local desejado pelo usuário e também informar uma rota viável para que o usuário possa chegar em tal localidade. O aplicativo da Google também é capaz de dar diversas informações sobre os locais disponíveis para busca, como horário de funcionamento e informações de contato.
-
-O Localização UFMS é um aplicativo web que disponibiliza um mapa interativo da UFMS, todos os campi, com muitos pontos de interesse. Nessa ferramenta o usuário consegue realizar buscas com diversos filtros e ver diversas informações sobre os pontos de interesse como lotação, horários, disponibilidade e agenda. Dependendo da classificação de um certo local pode mostrar informações diferentes, alguns possuem até mesmo fotos enquanto outros só possuem informações de tamanho do local. 
-
-\section{Referencial Teórico}
-
-Nesta seção, apresentaremos uma visão geral dos principais conceitos e tecnologias utilizadas no desenvolvimento do aplicativo Encontre na UFMS, abrangendo desde o ambiente de backend até a interface do usuário no frontend.
-
-\subsection{Backend: Fastify, Drizzle e MySQL}
-O Backend foi desenvolvido utilizando o framework Fastify com Node.js, permitindo um alto desempenho com grande velocidade de requisições, comparados à outros frameworks, juntamente com a facilidade de utilização. Além da utilização de Typescript para maior seguridade de erros de tipagem durante o processo de desenvolvimento.
-
-Para armazenamento dos dados utilizados no Backend foi utilizado o MySQL, um sistema de gerenciamento de banco de dados relacional Open Source que disponibiliza confiabilidade e desempenho. Para a conexão entre o Node.js com o MySql, foi utilizado o Drizzle, sendo um mapeador de objetos cujo o foco é a velocidade de entrega de dados realizada entre as duas ferramentas.
-
-\subsection{Login}
-Os usuários tem a possibilidade de se cadastrarem no aplicativo, sendo um requisito não obrigatório. No caso de usuários logados no sistema, são utilizados tokens JWT ou JSON Web Token para autenticação, garantindo ao acesso ao sistema de forma segura e eficaz.
-
-Para o envio de emails para o usuário recuperar a senha de sua conta, foi utilizado o MailJet, uma ferramenta que fornece acesso a APIs para envio de emails e mensagens de texto sms.
-
-\subsection{Frontend: Flutter}
-O frontend foi desenvolvido utilizando a ferramenta Flutter, um framework para a linguagem Dart e que pertence ao Google. Tanto o Dart quanto o Flutter foram criados principalmente para possibilitar o desenvolvimento de aplicativos móveis. Por se tratar de uma ferramenta relativamente nova, possui apenas 7 anos desde o seu lançamento, ela se aproveita de vários padrões já bem estabelecidos em outras linguagens e frameworks para criar um ambiente moderno e de fácil adequação para os desenvolvedores.
-
-Uma das grandes preocupações ao se desenvolver um aplicativo móvel é a gerência de possíveis estados enquanto o usuário navega e interage com este aplicativo, como fazer telas conversarem entre si e como manter a experiência o mais contínua e suave possível. Para isso é muito importante separar a apresentação dos dados para o usuário da lógica de negócios que faz todo o tratamento desses dados. A fim de exercer esse papel foi utilizdo o padrão BLoC (Business Logic Component), com a biblioteca flutter\_bloc, que permite acessar todo o estado da aplicação a qualquer momento e também dispara eventos quando certos estados mudam para que a apresentação dos dados esteja sempre atualizada.
-
-Para armazenar localmente o token do usuário logado foi utilizado o Hive, um banco de dados não relacional que tem como principais características a leveza e a rapidez. O mini mapa que é utilizado para mostrar a localização e para cadastrar um novo local facilitando o processo para o usuário foi implementado utilizando a biblioteca google\_maps\_flutter desenvolvido pela própria equipe do Flutter. 
-
-\subsection{Ambiente de desenvolvimento: Visual Studio Code}
-O ambiente de desenvolvimento escolhido foi o Visual Studio Code, uma das IDEs mas utilizadas no mundo graças ao grande número de ferramentas que podem ser integradas nela para aumentar as funcionalidades de desenvolvimento, teste e depuração.
-
-Foi utilizado também o Android SDK (Software Development Kit), que é um conjunto de ferramentas que permite o desenvolvimento de aplicativos para a plataforma Android. Ele inclui um depurador, bibliotecas, um emulador de dispositivo baseado em QEMU, documentação, amostras de código e tutoriais.
-
-\subsection{Bibiliotecas e Dependências}
-Diversas bibliotecas e dependências foram utilizadas no desenvolvimento do aplicativo Encontre na UFMS, dentre elas destacam-se:
-
-\begin{itemize}
-  \item \textbf{Fastify}: Framework para desenvolvimento de aplicações web com Node.js.
-  \item \textbf{Typescript}: Biblioteca que adiciona tipagem ao javascript.
-  \item \textbf{MySQL}: MySQL é um sistema de gerenciamento de banco de dados relacional de código aberto baseado em SQL.
-  \item \textbf{Drizzle}: Mapeador de objetos para conexão entre Node.js e MySQL.
-  \item \textbf{MailJet}: Ferramenta para envio de emails e sms.
-  \item \textbf{Flutter}: Framework para desenvolvimento de aplicativos móveis.
-  \item \textbf{Dart}: Linguagem de programação utilizada no Flutter.
-  \item \textbf{hive}: Banco de dados não relacional utilizado para armazenamento local.
-  \item \textbf{google\_maps\_flutter}: Biblioteca para implementação de mapas no Flutter.
-  \item \textbf{flutter\_bloc}: Biblioteca para gerenciamento de estados no Flutter.
-  \item \textbf{dio}: Biblioteca para requisições HTTP no Flutter.
-\end{itemize}
-
-Todas essas bibliotecas e dependências, bem como outras que não foram aqui citadas mas encontram-se especificadas nos projetos do frontend e do backend, foram fundamentais para o desenvolvimento do aplicativo Encontre na UFMS, permitindo a implementação de funcionalidades essenciais e a integração entre o backend e o frontend.
-
-\section{Solução Implementada}
-
-O aplicativo Encontre na UFMS foi desenvolvido com o intuito de facilitar a navegação pelo campus da UFMS em Campo Grande, permitindo que usuários encontrem e localizem pontos de interesse dentro do campus, estes sendo cadastrados por outros usuários, possibilitando que locais que não estão presentes em outros aplicativos de localização sejam documentados e compartilhados com a comunidade acadêmica. Os usuários também terão poder de avaliar os locais cadastrados, podendo assim, ajudar outros usuários a escolherem o melhor local para suas necessidades.
-
-\subsection{Análise Crítica e contribuição do Encontre na UFMS}
-Para podermos analisar o diferencial do aplicativo Encontre na UFMS podemos compará-lo com os aplicativos Google Maps e Localização UFMS. O Google Maps é um aplicativo de geolocalização muito utilizado no mundo todo, porém, ele não é focado em um local específico, como o campus da UFMS, e sim em todo o mundo, sendo assim ele não possui registrado diversos locais de menor escala mas que podem ser de grande importância para algum visitante ou alunos. Já o Localização UFMS é um aplicativo web que disponibiliza um mapa interativo da UFMS que possui mais de 2900 pontos de interesse registrados, porém, ele não possui alguns pontos de interesse que podem ser de grande importância para a comunidade acadêmica, como por exemplo, o Restaurante Universitário e também não informa ao usuário como chegar até o local desejado já que ele é focado em apenas mostrar informações sobre um certo local, ele também não tem fotos de todos os locais e não é colaborativo uma vez que apenas a administração da UFMS pode adicionar novos locais.
-
-\subsection{Comparação entre o Encontre na UFMS e outros aplicativos}
-\begin{table}[h]
-\begin{tabularx}{\textwidth}{|X|X|X|X|}
-\hline
-\textbf{Características} & \textbf{Google Maps} & \textbf{Localização UFMS} & \textbf{Encontre na UFMS} \\ \hline
-\textbf{Objetivo Principal} & Geolocalização global & Mapa interativo da UFMS & Navegação pelo campus da UFMS \\ \hline
-\textbf{Público-Alvo} & Usuários em geral & Comunidade acadêmica da UFMS & Comunidade acadêmica da UFMS \\ \hline
-\textbf{Principais Funcionalidades} & Busca de locais, rotas, informações de contato, horários de funcionamento & Busca de locais no campus, informações sobre pontos de interesse & Busca de locais, rotas, cadastro colaborativo de locais, avaliações de locais \\ \hline
-\end{tabularx}
-\caption{Comparação entre aplicativos de localização}
-\footnotesize  \centering{\textbf{Fonte: Autor original}}
-\label{tab:comparacao-aplicativos}
-\end{table}
-
-\subsection{Implementação}
-
-
-O backend foi desenvolvido utilizando o framework Fastify, a fim de garantir excelente desempenho em velocidade e segurança, possuindo uma arquitetura escalável, sendo programado em Typescript para melhor conhecimento de tipos durante o desenvolvimento, evitando erros desnecessários.
-
-\section{Considerações Finais}
-\section{Trabalhos Futuros}
+\input{trabalhos_futuros}
 
 \end{document}

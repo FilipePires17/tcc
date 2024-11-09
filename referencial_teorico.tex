@@ -1,0 +1,44 @@
+\section{Referencial Teórico}
+
+Nesta seção, apresentaremos uma visão geral dos principais conceitos e tecnologias utilizadas no desenvolvimento do aplicativo Encontre na UFMS, abrangendo desde o ambiente de backend até a interface do usuário no frontend.
+
+\subsection{Backend: Fastify, Drizzle e MySQL}
+O Backend foi desenvolvido utilizando o framework Fastify com Node.js, permitindo um alto desempenho com grande velocidade de requisições, comparados à outros frameworks, juntamente com a facilidade de utilização. Além da utilização de Typescript para maior seguridade de erros de tipagem durante o processo de desenvolvimento.
+
+Para armazenamento dos dados utilizados no Backend foi utilizado o MySQL, um sistema de gerenciamento de banco de dados relacional Open Source que disponibiliza confiabilidade e desempenho. Para a conexão entre o Node.js com o MySql, foi utilizado o Drizzle, sendo um mapeador de objetos cujo o foco é a velocidade de entrega de dados realizada entre as duas ferramentas.
+
+\subsection{Login}
+Os usuários tem a possibilidade de se cadastrarem no aplicativo, sendo um requisito não obrigatório. No caso de usuários logados no sistema, são utilizados tokens JWT ou JSON Web Token para autenticação, garantindo ao acesso ao sistema de forma segura e eficaz.
+
+Para o envio de emails para o usuário recuperar a senha de sua conta, foi utilizado o MailJet, uma ferramenta que fornece acesso a APIs para envio de emails e mensagens de texto sms.
+
+\subsection{Frontend: Flutter}
+O frontend foi desenvolvido utilizando a ferramenta Flutter, um framework para a linguagem Dart e que pertence ao Google. Tanto o Dart quanto o Flutter foram criados principalmente para possibilitar o desenvolvimento de aplicativos móveis. Por se tratar de uma ferramenta relativamente nova, possui apenas 7 anos desde o seu lançamento, ela se aproveita de vários padrões já bem estabelecidos em outras linguagens e frameworks para criar um ambiente moderno e de fácil adequação para os desenvolvedores.
+
+Uma das grandes preocupações ao se desenvolver um aplicativo móvel é a gerência de possíveis estados enquanto o usuário navega e interage com este aplicativo, como fazer telas conversarem entre si e como manter a experiência o mais contínua e suave possível. Para isso é muito importante separar a apresentação dos dados para o usuário da lógica de negócios que faz todo o tratamento desses dados. A fim de exercer esse papel foi utilizdo o padrão BLoC (Business Logic Component), com a biblioteca flutter\_bloc, que permite acessar todo o estado da aplicação a qualquer momento e também dispara eventos quando certos estados mudam para que a apresentação dos dados esteja sempre atualizada.
+
+Para armazenar localmente o token do usuário logado foi utilizado o Hive, um banco de dados não relacional que tem como principais características a leveza e a rapidez. O mini mapa que é utilizado para mostrar a localização e para cadastrar um novo local facilitando o processo para o usuário foi implementado utilizando a biblioteca google\_maps\_flutter desenvolvido pela própria equipe do Flutter. 
+
+\subsection{Ambiente de desenvolvimento: Visual Studio Code}
+O ambiente de desenvolvimento escolhido foi o Visual Studio Code, uma das IDEs mas utilizadas no mundo graças ao grande número de ferramentas que podem ser integradas nela para aumentar as funcionalidades de desenvolvimento, teste e depuração.
+
+Foi utilizado também o Android SDK (Software Development Kit), que é um conjunto de ferramentas que permite o desenvolvimento de aplicativos para a plataforma Android. Ele inclui um depurador, bibliotecas, um emulador de dispositivo baseado em QEMU, documentação, amostras de código e tutoriais.
+
+\subsection{Bibiliotecas e Dependências}
+Diversas bibliotecas e dependências foram utilizadas no desenvolvimento do aplicativo Encontre na UFMS, dentre elas destacam-se:
+
+\begin{itemize}
+  \item \textbf{Fastify}: Framework para desenvolvimento de aplicações web com Node.js.
+  \item \textbf{Typescript}: Biblioteca que adiciona tipagem ao javascript.
+  \item \textbf{MySQL}: MySQL é um sistema de gerenciamento de banco de dados relacional de código aberto baseado em SQL.
+  \item \textbf{Drizzle}: Mapeador de objetos para conexão entre Node.js e MySQL.
+  \item \textbf{MailJet}: Ferramenta para envio de emails e sms.
+  \item \textbf{Flutter}: Framework para desenvolvimento de aplicativos móveis.
+  \item \textbf{Dart}: Linguagem de programação utilizada no Flutter.
+  \item \textbf{hive}: Banco de dados não relacional utilizado para armazenamento local.
+  \item \textbf{google\_maps\_flutter}: Biblioteca para implementação de mapas no Flutter.
+  \item \textbf{flutter\_bloc}: Biblioteca para gerenciamento de estados no Flutter.
+  \item \textbf{dio}: Biblioteca para requisições HTTP no Flutter.
+\end{itemize}
+
+Todas essas bibliotecas e dependências, bem como outras que não foram aqui citadas mas encontram-se especificadas nos projetos do frontend e do backend, foram fundamentais para o desenvolvimento do aplicativo Encontre na UFMS, permitindo a implementação de funcionalidades essenciais e a integração entre o backend e o frontend.

@@ -43,7 +43,11 @@
 
 \subsubsection{Backend}
 
-    O backend foi desenvolvido utilizando o framework Fastify, a fim de garantir excelente desempenho em velocidade e segurança, possuindo uma arquitetura escalável, sendo programado em Typescript para melhor definição de variáveis e classes durante o desenvolvimento, evitando eventuais erros que poderiam ser causados por incompatibilidade de tipos.
+    O backend foi desenvolvido utilizando o framework Fastify, a fim de garantir excelente desempenho mesmo com um grande volume de requisições, permitindo escalabilidade sem perder a segurança. Foi programado utilizando o Node.js, uma ferramenta que permite a execução de código JavaScript em um ambiente fora do navegador, com excelente desempenho e confiabilidade. 
+    
+    Durante o desenvolvimento, foi utilizado a linguagem de programação Typescript para tipagem de variáveis, classes e objetos, evitando eventuais erros que poderiam ser causados por incompatibilidade de tipos. Para a execução do código utilizando o Node.js, foi utilizado uma ferramenta do TypeScript para transpilação do código-fonte em JavaScript.
+
+    O código foi desenvolvido utilizando o padrão de software MVC ou Model-View-Controller, sendo em português: Modelo-Visão-Controlador. As três camadas se entrelaçam entre si, onde o Controlador recebe as requisições do usuário e as envia para o Modelo, que manipula os dados e faz a conexão com o banco de dados, após, é retornado para o Controlador que envia para a Visão, que exibe as informações ao usuário. Para a comunicação entre o backend e o frontend, foi utilizado uma API REST.
 
 \subsection{Testes e Execução}
 

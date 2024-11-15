@@ -45,9 +45,36 @@
 
     O backend foi desenvolvido utilizando o framework Fastify, a fim de garantir excelente desempenho mesmo com um grande volume de requisições, permitindo escalabilidade sem perder a segurança. Foi programado utilizando o Node.js, uma ferramenta que permite a execução de código JavaScript em um ambiente fora do navegador, com excelente desempenho e confiabilidade. 
     
-    Durante o desenvolvimento, foi utilizado a linguagem de programação Typescript para tipagem de variáveis, classes e objetos, evitando eventuais erros que poderiam ser causados por incompatibilidade de tipos. Para a execução do código utilizando o Node.js, foi utilizado uma ferramenta do TypeScript para transpilação do código-fonte em JavaScript.
+    Durante o desenvolvimento, foi utilizado a linguagem de programação Typescript para tipagem de variáveis, classes e objetos, evitando eventuais erros que poderiam ser causados por incompatibilidade de tipos. Para a execução do código utilizando o Node.js, foi utilizado uma ferramenta do TypeScript: "tsc" ou TypeScript Compiler, para transpilação do código-fonte em JavaScript durante o desenvolvimento, enquanto que para ser utilizado em produção, foi utilizado o tsup, uma ferramenta de empacotamento e transpilação de código TypeScript para JavaScript, rápida e eficiente.
 
     O código foi desenvolvido utilizando o padrão de software MVC ou Model-View-Controller, sendo em português: Modelo-Visão-Controlador. As três camadas se entrelaçam entre si, onde o Controlador recebe as requisições do usuário e as envia para o Modelo, que manipula os dados e faz a conexão com o banco de dados, após, é retornado para o Controlador que envia para a Visão, que exibe as informações ao usuário. Para a comunicação entre o backend e o frontend, foi utilizado uma API REST.
+
+\subsubsection{Banco de dados}
+    
+    Foi utilizado o MySQL, um Sistema de Gerenciamento de Banco de Dados Relacional baseado em SQL, para armazenar e gerenciar os dados do sistema. O centro do aplicativo são os locais, logo, foi criada a tabela ``Locales'' que armazena os dados gerais que compõem um determinado local. Sendo que cada local pode possuir horários de funcionamento durante a semana, sendo armazenado na tabela ``Schedules'', com uma relação de um para um. Os locais também podem ter fotos, sendo armazenados na tabela ``Photos'', com uma relação de um para muitos.
+    
+    Os locais foram dividos em tipos específicos para melhor organização dos dados e apresentação ao usuário final, sendo eles: Blocos Acadêmicos, Pontos Turísticos, Bancos, Restaurantes, Serviços de Saúde, Bibliotecas, Centros de Esportes, Transportes, Estacionamentos e Prédios Gerais. Alguns desses tipos posssuem tabelas próprias com informações específicas, como é o caso dos tipos: Blocos Acadêmicos, Bibliotecas, Centros de Esportes e Transportes. 
+    
+    Além disso, também foi criado uma tabela ``Users'' para armazenar os dados básicos do usuário para cadastro e login do mesmo dentro do sistema. Os usuários possuem 3 relações com a tabela ``Locales'', formando 3 tabelas, sendo elas: Histories, Reviews e Favorites, que armazenam respectivamente:
+    \begin{itemize}
+        \item O histórico dos 10 últimos locais visualizados recentemente
+        \item As avaliações que o usuário fez aos locais 
+        \item Os locais favoritos.
+    \end{itemize}
+
+    Na imagem abaixo, está descrita a estrutura do banco de dados do aplicativo Encontre na UFMS.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagens/encontrenaufms.png}
+    \caption{\scriptsize Interface do DBeaver exibindo a estrutura do banco de dados [1].}
+    \footnotesize  \centering{\textbf{Fonte: Autor original}}
+    \label{fig:descricaoBancoDeDados}
+\end{figure}
+
+    A Figura 2 foi feita utilizando o DBeaver [1], que é uma ferramenta de gerenciamento de banco de dados, foi utilizada uma função que monta graficamente a estrutura do banco de dados utilizado.
+
+    Para a conexão entre o Node.js e o MySQL, foi utilizado o Drizzle que é uma ferramenta de mapeamento de objetos cujo o foco é a velocidade de entrega de dados entre as duas ferramentas. 
 
 \subsection{Testes e Execução}
 

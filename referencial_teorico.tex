@@ -1,34 +1,34 @@
 \section{Referencial Teórico}
 
-Nesta seção, apresentaremos uma visão geral dos principais conceitos e tecnologias utilizadas no desenvolvimento do aplicativo Encontre na UFMS, abrangendo desde os requisitos do sistema, quanto ao ambiente do backend até a interface do usuário no frontend.
+Nesta seção, apresentaremos uma visão geral dos principais conceitos e tecnologias utilizadas no desenvolvimento do aplicativo Encontre na UFMS, abrangendo desde os requisitos do sistema até o ambiente do backend e a interface do usuário no frontend.
 
 \subsection{Requisitos do Sistema}
 
-O aplicativo Encontre na UFMS foi planejado mediante um conjunto de requisitos, pensando na experiência do usuário. Considerando a facilidade de uso, acessibilidade e usabilidade. Abaixo, estão listados alguns dos requisitos funcionais descritos no Documento de Requisitos Aplicativo Encontre na UFMS [3]:
+O aplicativo Encontre na UFMS foi planejado com base em um conjunto de requisitos, focando na experiência do usuário e considerando aspectos como facilidade de uso, acessibilidade e usabilidade. Abaixo, estão listados alguns dos requisitos funcionais descritos no Documento de Requisitos Aplicativo Encontre na UFMS [3]:
 
 \begin{itemize}
   \item \textbf{Listagem de pontos importantes}: O sistema deve listar pontos importantes do campus de Campo Grande da UFMS. Exemplo: Blocos Acadêmicos, Bancos, Pontos Turísticos, Restaurantes, etc.
   \item \textbf{Listagem de informações detalhadas}: O sistema deve fornecer informações detalhadas a respeito de um determinado local, tais como: Nome, endereço, telefone, horário de funcionamento, fotos, entre outras informações.
-  \item \textbf{Redirecionamento para o Google Maps}:  O sistema deve fornecer um link que irá redirecionar o usuário para o aplicativo / página na internet do Google Maps com o endereço do local inserido.
-  \item \textbf{Busca de pontos específicos}: O sistema deve permitir que o usuário consiga buscar um ponto específico, através do nome do local e / ou através de filtros de busca.
-  \item \textbf{Login}: O sistema deve permitir que o usuário consiga logar no sistema, além de se cadastrar / recuperar sua conta.
-  \item \textbf{Favoritar}:  O sistema deve permitir que o usuário consiga favoritar os locais desejados.
-  \item \textbf{Avaliar}:  O sistema deve permitir que o usuário consiga avaliar os locais desejados, utilizando de 1 a 5 estrelas por avaliação.
+  \item \textbf{Redirecionamento para o Google Maps}:  O sistema deve oferecer um link que redirecione o usuário para o aplicativo ou página na internet do Google Maps com o endereço do local inserido.
+  \item \textbf{Busca de pontos específicos}: O sistema deve permitir que o usuário busque um ponto específico utilizando o nome do local e/ou filtros de busca.
+  \item \textbf{Login}: O sistema deve permitir que o usuário faça login, além de possibilitar o cadastro e a recuperação de conta.
+  \item \textbf{Favoritar}:  O sistema deve permitir que o usuário favorite os locais de interesse.
+  \item \textbf{Avaliar}:  O sistema deve permitir que o usuário avalie os locais, utilizando uma escala de 1 a 5 estrelas.
   \item \textbf{Criar e alterar locais}: O sistema deve permitir que usuários façam sugestões para inclusão ou alteração de locais.
 \end{itemize}
 
-O sistema visa oferecer ao usuário uma experiência de busca e localização eficiente, com uma interface amigável e intuitiva que permite aos usuários navegar e encontrar informações úteis a respeito de cada local, além de possuir funcionalidades como o redirecionamento para o Google Maps com o intuito de traçar uma rota de para que o usuário consiga chegar ao local. Também conta com cadastramento, login e recuperação de conta, para que o usuário usufrua de funções como avaliação de locais, favoritar e sugestões de novos locais / edição de locais existentes no aplicativo..
+O sistema visa oferecer ao usuário uma experiência de busca e localização eficiente, com uma interface amigável e intuitiva que permite navegar e encontrar informações úteis sobre cada local. Além disso, possui funcionalidades como redirecionamento para o Google Maps, a fim de traçar rotas para que o usuário consiga chegar ao local. Também inclui funcionalidades de cadastro, login e recuperação de conta, permitindo ao usuário usufruir de opções como avaliação de locais, favoritá-los e sugerir novos locais ou editar locais existentes no aplicativo.
 
 
 \subsection{Backend: Fastify, Drizzle e MySQL}
-O Backend foi desenvolvido utilizando o framework Fastify com Node.js, permitindo um alto desempenho com grande velocidade de requisições, comparados à outros frameworks, juntamente com a facilidade de utilização. Além da utilização de Typescript para maior seguridade de erros de tipagem durante o processo de desenvolvimento.
+O backend foi desenvolvido utilizando o framework Fastify com Node.js, proporcionando alto desempenho e grande velocidade nas requisições em comparação a outros frameworks, além da facilidade de uso. Foi utilizado TypeScript para aumentar a segurança contra erros de tipagem durante o processo de desenvolvimento.
 
-Para armazenamento dos dados utilizados no Backend foi utilizado o MySQL, um sistema de gerenciamento de banco de dados relacional Open Source que disponibiliza confiabilidade e desempenho. Para a conexão entre o Node.js com o MySql, foi utilizado o Drizzle, sendo um mapeador de objetos cujo o foco é a velocidade de entrega de dados realizada entre as duas ferramentas.
+Para o armazenamento de dados no backend, foi utilizado o MySQL, um sistema de gerenciamento de banco de dados relacional open-source que oferece confiabilidade e desempenho. A conexão entre o Node.js e o MySQL foi feita utilizando o Drizzle, um mapeador de objetos (ORM) que foca na velocidade e eficiência na entrega de dados entre as duas ferramentas.
 
 \subsection{Login}
-Os usuários tem a possibilidade de se cadastrarem no aplicativo, sendo um requisito não obrigatório. No caso de usuários logados no sistema, são utilizados tokens JWT ou JSON Web Token para autenticação, garantindo ao acesso ao sistema de forma segura e eficaz.
+Os usuários tem a possibilidade de se cadastrarem no aplicativo, sendo o cadastro um requisito não obrigatório. Para usuários logados no sistema, são utilizados tokens JWT (JSON Web Token) para autenticação, garantindo acesso seguro e eficaz ao sistema.
 
-Para o envio de emails para o usuário recuperar a senha de sua conta, foi utilizado o MailJet, uma ferramenta que fornece acesso a APIs para envio de emails e mensagens de texto sms.
+Para o envio de e-mails de recuperação de senha, foi utilizado o MailJet, uma ferramenta que fornece acesso a APIs para envio de e-mails e mensagens de texto (SMS).
 
 \subsection{Frontend: Flutter}
 O frontend foi desenvolvido utilizando a ferramenta Flutter, um framework para a linguagem Dart e que pertence ao Google. Tanto o Dart quanto o Flutter foram criados principalmente para possibilitar o desenvolvimento de aplicativos móveis. Por se tratar de uma ferramenta relativamente nova, possui apenas 7 anos desde o seu lançamento, ela se aproveita de vários padrões já bem estabelecidos em outras linguagens e frameworks para criar um ambiente moderno e de fácil adequação para os desenvolvedores.
@@ -48,7 +48,7 @@ Diversas bibliotecas e dependências foram utilizadas no desenvolvimento do apli
 \begin{itemize}
   \item \textbf{Fastify}: Framework para desenvolvimento de aplicações web com Node.js.
   \item \textbf{TypeScript}: Linguagem de programação que extende JavaScript, adicionando tipagem à linguagem.
-  \item \textbf{tsup}: Empacotador de arquivos TypeScript e JavaScript..
+  \item \textbf{tsup}: Empacotador de arquivos TypeScript e JavaScript, utilizado para otimizar e gerar builds.
   \item \textbf{MySQL}: MySQL é um sistema de gerenciamento de banco de dados relacional de código aberto baseado em SQL.
   \item \textbf{Drizzle}: Mapeador de objetos para conexão entre Node.js e MySQL.
   \item \textbf{MailJet}: Ferramenta para envio de emails e sms.

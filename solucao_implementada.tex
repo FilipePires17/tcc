@@ -51,18 +51,7 @@
 
 \subsubsection{Banco de dados}
     
-    Foi utilizado o MySQL, um Sistema de Gerenciamento de Banco de Dados Relacional baseado em SQL, para armazenar e gerenciar os dados do sistema. O centro do aplicativo são os locais, logo, foi criada a tabela ``Locales'' que armazena os dados gerais que compõem um determinado local. Sendo que cada local pode possuir horários de funcionamento durante a semana, sendo armazenado na tabela ``Schedules'', com uma relação de um para um. Os locais também podem ter fotos, sendo armazenados na tabela ``Photos'', com uma relação de um para muitos.
-    
-    Os locais foram dividos em tipos específicos para melhor organização dos dados e apresentação ao usuário final, sendo eles: Blocos Acadêmicos, Pontos Turísticos, Bancos, Restaurantes, Serviços de Saúde, Bibliotecas, Centros de Esportes, Transportes, Estacionamentos e Prédios Gerais. Alguns desses tipos posssuem tabelas próprias com informações específicas, como é o caso dos tipos: Blocos Acadêmicos, Bibliotecas, Centros de Esportes e Transportes. 
-    
-    Além disso, também foi criado uma tabela ``Users'' para armazenar os dados básicos do usuário para cadastro e login do mesmo dentro do sistema. Os usuários possuem 3 relações com a tabela ``Locales'', formando 3 tabelas, sendo elas: ``Histories'', ``Reviews'' e ``Favorites'', que armazenam respectivamente:
-    \begin{itemize}
-        \item O histórico dos 10 últimos locais visualizados recentemente
-        \item As avaliações que o usuário fez aos locais 
-        \item Os locais favoritos.
-    \end{itemize}
-
-    Na imagem abaixo, está descrita a estrutura do banco de dados do aplicativo Encontre na UFMS.
+    Foi utilizado o MySQL, um Sistema de Gerenciamento de Banco de Dados Relacional baseado em SQL, para armazenar e gerenciar os dados do sistema.  Na imagem abaixo, está descrita a estrutura do banco de dados do aplicativo Encontre na UFMS.
 
 \begin{figure}[h]
     \centering
@@ -72,7 +61,33 @@
     \label{fig:descricaoBancoDeDados}
 \end{figure}
 
-    A Figura 2 foi feita utilizando o DBeaver [1], que é uma ferramenta de gerenciamento de banco de dados, foi utilizada uma função que monta graficamente a estrutura do banco de dados utilizado.
+    Como descrito na fitura 2, o centro da aplicação e do banco de dados são locais. A estrutura do banco foi modelada para permitir uma organização eficiente das informações, com tabelas que representam tanto os locais quanto os atributos e relacionamentos associados:
+
+    \begin{itemize}
+        \item \textbf{Locales}: Armazena os dados gerais de cada local, como nome, descrição, e localização.
+        \item \textbf{Schedules}: Relacionamento de um para um com a tabela Locales, responsável por armazenar os horários de funcionamento dos locais ao longo da semana.
+        \item \textbf{Photos}: Relacionamento de um para muitos com a tabela Locales, onde cada local pode ter diversas fotos associadas.
+        \item \textbf{Users}: Armazena os dados do usuário, como nome, email, senha.
+        \item \textbf{Histories}: Relacionamento de muitos para muitos com a tabela Locales e a tabela Users, onde cada usuário pode ter um histórico de locais visualizados recentemente.
+        \item \textbf{Reviews}: Relacionamento de muitos para muitos com a tabela Locales e a tabela Users, armazena as avaliações de cada usuário feitas aos locais.
+        \item \textbf{Favorites}: Relacionamento de muitos para muitos com a tabela Locales e a tabela Users, onde cada usuário pode ter locais favoritos.
+        \item \textbf{AcademicBlocks}: Tabela exclusiva para armazenar os nomes dos cursos pertencentes ao respectivo bloco acadêmico.
+        \item \textbf{Libraries}: Tabela exclusiva para armazenar as as regras e o link para site externo da biblioteca.
+        \item \textbf{Sports}: Tabela exclusiva para armazenar as regras e os esportes disponíveis para serem praticados no centro de esportes.
+        \item \textbf{Transportes}: Tabela exlusiva para armazenenar os ônibus que passam no local.
+    \end{itemize}
+
+    A tabela ``Locales'' armazena os dados gerais que compõem um determinado local. Sendo que cada local pode possuir horários de funcionamento durante a semana, sendo armazenado na tabela ``Schedules''. Os locais também podem ter fotos, sendo armazenados na tabela ``Photos''.
+    
+    Os locais foram dividos em tipos específicos para melhor organização dos dados e apresentação ao usuário final, sendo eles: Blocos Acadêmicos, Pontos Turísticos, Bancos, Restaurantes, Serviços de Saúde, Bibliotecas, Centros de Esportes, Transportes, Estacionamentos e Prédios Gerais. Alguns desses tipos posssuem tabelas próprias com informações específicas, como é o caso dos tipos: Blocos Acadêmicos, Bibliotecas, Centros de Esportes e Transportes. 
+    
+    Além disso, também foi criado uma tabela ``Users'' para armazenar os dados básicos do usuário para cadastro e login do mesmo dentro do sistema. Os usuários possuem 3 relações com a tabela ``Locales'', formando 3 tabelas, sendo elas: ``Histories'', ``Reviews'' e ``Favorites'', que armazenam respectivamente:
+    
+    \begin{itemize}
+        \item O histórico dos 10 últimos locais visualizados recentemente
+        \item As avaliações que o usuário fez aos locais 
+        \item Os locais favoritos.
+    \end{itemize}
 
     Para a conexão entre o Node.js e o MySQL, foi utilizado o Drizzle que é uma ferramenta de mapeamento de objetos cujo o foco é a velocidade de entrega de dados entre as duas ferramentas. 
 
@@ -82,8 +97,7 @@
 
 \subsubsection{Diagrama de Navegação}
 
-    O diagrama de navegação do aplicativo apresentado na Figura 2 demonstra os fluxos básicos de navegação que o usuário pode experenciar
-    durante o uso do mesmo, vale destacar que algumas telas como Perfil e Criação só são acessíveis caso o usuário esteja logado.
+    A imagem abaixo ilustra o diagrama de navegação do aplicativo Encontre na UFMS:
 
     \begin{figure}[h]
         \centering
@@ -92,6 +106,9 @@
         \footnotesize  \centering{\textbf{Fonte: Autor original}}
         \label{fig:diagrama-navegacao}
     \end{figure}
+
+    O diagrama de navegação do aplicativo apresentado na Figura 3 demonstra os fluxos básicos de navegação que o usuário pode experenciar
+    durante o uso do mesmo, vale destacar que algumas telas como Perfil e Criação só são acessíveis caso o usuário esteja logado.
 
     \FloatBarrier
 

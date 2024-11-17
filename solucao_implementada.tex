@@ -8,6 +8,8 @@
 \newpage
 
 \subsection{Comparação entre o Encontre na UFMS e outros aplicativos}
+    A Tabela 1 apresenta uma comparação entre os aplicativos Google Maps, Localização UFMS e Encontre na UFMS, destacando as principais características de cada aplicativo.
+
 \begin{table}[h]
     \begin{tabularx}{\textwidth}{|X|X|X|X|}
         \hline
@@ -29,13 +31,13 @@
 
     O frontend foi desenvolvido utilizando o framework Flutter, que permite o desenvolvimento de aplicativos móveis para Android e iOS a partir de um único código fonte. O Flutter é uma ferramenta moderna e de fácil utilização, que permite a criação de interfaces de usuário atraentes e responsivas.
 
-    O código foi desenvolvido com base na \textit{Clean Architecture} \cite{cleanarchitecture}, que é um padrão de arquitetura de software que visa separar as responsabilidades do código em camadas bem definidas, facilitando a manutenção e a evolução do sistema. A arquitetura do aplicativo foi dividida em três camadas principais: a camada de apresentação, a camada de domínio e a camada de dados. A camada de apresentação é responsável por exibir os dados para o usuário e capturar as interações do usuário com o sistema. A camada de domínio contém as regras de negócio do sistema, enquanto a camada de dados é responsável por acessar os dados do sistema, seja de um banco de dados local ou de uma API remota.
+    O código foi desenvolvido com base na \textit{Clean Architecture} \cite{cleanarchitecture}, que é um padrão de arquitetura de software que visa separar as responsabilidades do código em camadas bem definidas, facilitando a manutenção e a evolução do sistema. A arquitetura do aplicativo foi dividida em três camadas principais: a camada de apresentação, a camada de domínio e a camada de dados. A camada de apresentação é responsável por exibir os dados para o usuário e capturar as interações do usuário com o sistema. A camada de domínio contém as regras de negócio do sistema, enquanto a camada de dados é responsável por acessar os dados do sistema, seja de um banco de dados local ou de uma API remota. Essa divisão de camadas é ilustrada na Figura 1.
 
     \begin{figure}[h]
         \centering
         \includegraphics[width=44mm,height=80mm]{imagens/cleanarch.png}
         \caption{\scriptsize Clean Architecture}
-        \footnotesize  \centering{\textbf{Fonte: X}}
+        \footnotesize  \centering{\textbf{Fonte: Semih Altin\cite{cleanarchitecture}}}
         \label{fig:clean-architecture}
     \end{figure}
 
@@ -63,7 +65,7 @@
     \label{fig:descricaoBancoDeDados}
 \end{figure}
 
-    Como descrito na fitura 2, o centro da aplicação e do banco de dados são locais. A estrutura do banco foi modelada para permitir uma organização eficiente das informações, com tabelas que representam tanto os locais quanto os atributos e relacionamentos associados:
+    Como descrito na Figura 2, o centro da aplicação e do banco de dados são locais. A estrutura do banco foi modelada para permitir uma organização eficiente das informações, com tabelas que representam tanto os locais quanto os atributos e relacionamentos associados:
 
     \begin{itemize}
         \item \textbf{Locales}: Armazena os dados gerais de cada local, como nome, descrição, e localização.
@@ -99,7 +101,7 @@
 
 \subsubsection{Diagrama de Navegação}
 
-    A imagem abaixo ilustra o diagrama de navegação do aplicativo Encontre na UFMS:
+    A Figura 3 ilustra o diagrama de navegação do aplicativo Encontre na UFMS:
 
     \begin{figure}[h]
         \centering
@@ -109,7 +111,7 @@
         \label{fig:diagrama-navegacao}
     \end{figure}
 
-    O diagrama de navegação do aplicativo apresentado na Figura 3 demonstra os fluxos básicos de navegação que o usuário pode experenciar
+    O diagrama de navegação do aplicativo apresentado acima demonstra os fluxos básicos de navegação que o usuário pode experenciar
     durante o uso do mesmo, vale destacar que algumas telas como Perfil e Criação só são acessíveis caso o usuário esteja logado.
 
     \FloatBarrier
@@ -120,7 +122,7 @@
     
     Cada local é representado por um segmento contendo a foto, o nome, o endereço, a categoria, se o local está provavelmente fechado naquele horário e um indicador que mostra se o local está marcado como favorito ou não. Cada segmento é clicável, redirecionando o usuário para a tela de detalhes do local. O usuário pode também clicar no indicador de favorito para marcar ou desmarcar o local como favorito caso ele esteja logado, caso não esteja o usuário é redirecionando para a tela de Login que será abordada mais a frente. A listagem de locais é paginada, exibindo 10 locais por vez, uma nova requisição é feita toda vez que o usuário chega ao final da lista, carregando a próxima página caso haja uma.
 
-    Na parte superior da tela há uma seção com um botão, que abre o menu lateral, e um campo de texto para pesquisa. Logo abaixo há um filtro de categorias, uma série de botões que podem ser arrastados horizontalmente, permitindo que o usuário filtre os locais por uma ou mais categorias, de acordo com suas necessidades. Na busca por texto foi aplicado um \textit{debounce} de 1s para evitar que a busca seja feita a cada caractere digitado, o que poderia causar um consumo excessivo de recursos da API. 
+    Na parte superior da tela há uma seção com um botão, que abre o menu lateral, e um campo de texto para pesquisa. Logo abaixo há um filtro de categorias, uma série de botões que podem ser arrastados horizontalmente, permitindo que o usuário filtre os locais por uma ou mais categorias, de acordo com suas necessidades. Na busca por texto foi aplicado um \textit{debounce} de 1s para evitar que a busca seja feita a cada caractere digitado, o que poderia causar um consumo excessivo de recursos da API. A Figura 4 mostra a tela de listagem de locais.
 
     \begin{figure}[h]
         \centering
@@ -134,7 +136,7 @@
 
 \subsubsection{Tela 2: Local}
 
-    A tela de local é onde todos os detalhes do local selecionado pelo usuário na tela de listagem são apresentados. Nela, o usuário pode visualizar uma ou mais fotos do local, o nome, um indicador que é mostrado caso o local tenha opções de acessibilidade e a avaliação média do local, que é a média das avaliações por outros usuários. Além disso existem 3 abas que o usuário pode navegar sem sair da tela. A aba de localização é a aba inicial e mostra o endereço do local, um mapa com a localização do local indicada e uma seção para o usuário dar sua própria avaliação do local, caso esteja logado. A aba de informações exibe alguns detalhes do local como observações e telefone de contato. Por fim, a aba de Horários exibe os horários de funcionamento do local, caso estejam cadastrados.
+    A tela de local é onde todos os detalhes do local selecionado pelo usuário na tela de listagem são apresentados. Nela, o usuário pode visualizar uma ou mais fotos do local, o nome, um indicador que é mostrado caso o local tenha opções de acessibilidade e a avaliação média do local, que é a média das avaliações por outros usuários. Além disso existem 3 abas que o usuário pode navegar sem sair da tela. A aba de localização é a aba inicial e mostra o endereço do local, um mapa com a localização do local indicada e uma seção para o usuário dar sua própria avaliação do local, caso esteja logado. A aba de informações exibe alguns detalhes do local como observações e telefone de contato. Por fim, a aba de Horários exibe os horários de funcionamento do local, caso estejam cadastrados. A Figura 5 mostra a tela de local com a aba de localização, já a Figura 6 apresenta as demais abas.
 
     \begin{figure}[h]
         \centering
@@ -160,7 +162,7 @@
 
     O menu lateral é acessível através de um botão na parte superior da tela de listagem de locais. Ele é composto por uma série de botões que redirecionam o usuário para diferentes telas do aplicativo. O menu lateral é uma forma de organizar as funcionalidades do aplicativo de forma intuitiva e acessível, permitindo que o usuário navegue facilmente entre as diferentes telas do aplicativo.
 
-    Essa tela muda de acordo com o estado de autenticação do usuário, caso ele esteja logado, aparecerá o nome do usuário logo abaixo o nome do aplicativo e os botões de Perfil e Criação assim como um botão de Sair, caso contrário, todas essas informações são omitidas e apenas o botão de Sobre é exibido, e no lugar do botão de Sair é exibido o botão de Login. Abaixo as duas figuras exemplificam ambos os estados.
+    Essa tela muda de acordo com o estado de autenticação do usuário, caso ele esteja logado, aparecerá o nome do usuário logo abaixo o nome do aplicativo e os botões de Perfil e Criação assim como um botão de Sair, caso contrário, todas essas informações são omitidas e apenas o botão de Sobre é exibido, e no lugar do botão de Sair é exibido o botão de Login. Abaixo as duas figuras exemplificam ambos os estados. A Figura 7 mostra o menu lateral tanto no estado logado quanto no estado deslogado.
 
     \begin{figure}[h]
         \centering
@@ -176,7 +178,7 @@
 
 \subsubsection{Tela 4: Perfil}
 
-    A tela de perfil exibe as informações do usuário logado, nome e e-mail. Além disso, a tela também permite que o usuário edite seu nome e altere sua senha. A tela de perfil é uma forma de o usuário gerenciar suas informações pessoais e garantir que seus dados estejam sempre atualizados.
+    A tela de perfil exibe as informações do usuário logado, nome e e-mail. Além disso, a tela também permite que o usuário edite seu nome e altere sua senha. A tela de perfil é uma forma de o usuário gerenciar suas informações pessoais e garantir que seus dados estejam sempre atualizados. A Figura 8 mostra a tela de perfil.
 
     \begin{figure}[h]
         \centering
@@ -190,10 +192,12 @@
 
 \subsubsection{Tela 5: Criação}
 
-    A tela de criação possibilita que os usuários preencham uma série de informações sobre o local que desejam cadastrar, como nome, endereço, categoria, horários de funcionamento, telefone de contato, observações e fotos, e enviem para uma avaliação. A tela de criação é uma forma de os usuários contribuírem com o aplicativo, adicionando novos locais e enriquecendo a base de dados do sistema.
+    A tela de criação possibilita que os usuários preencham uma série de informações sobre o local que desejam cadastrar, como nome, endereço, categoria, horários de funcionamento, telefone de contato, observações e fotos, e enviem para uma avaliação. A tela de criação é uma forma de os usuários contribuírem com o aplicativo, adicionando novos locais e enriquecendo a base de dados do sistema. A Figura 9 mostra as telas de criação.
 
     \begin{figure}[h]
         \centering
+        \includegraphics[width=44mm,height=80mm]{imagens/criacao.jpg}
+        \hspace{10mm}
         \includegraphics[width=44mm,height=80mm]{imagens/criacao.jpg}
         \caption{\scriptsize Tela 5: Criação}
         \footnotesize  \centering{\textbf{Fonte: Autor original}}
@@ -204,7 +208,7 @@
 
 \subsubsection{Tela 6: Sobre}
 
-    A tela de sobre exibe informações sobre o aplicativo, como a versão, os desenvolvedores e a licença de uso. A tela de sobre é uma forma de os usuários conhecerem mais sobre o aplicativo e os desenvolvedores por trás dele.
+    A tela de sobre exibe informações sobre o aplicativo, como a versão, os desenvolvedores e a licença de uso. A tela de sobre é uma forma de os usuários conhecerem mais sobre o aplicativo e os desenvolvedores por trás dele. A Figura 10 mostra a tela de sobre.
 
     \begin{figure}[h]
         \centering
@@ -218,7 +222,7 @@
 
 \subsubsection{Tela 7: Login}
 
-    A tela de login pode ser alcançada através de 2 fluxos, o primeiro é através do botão de Login na tela de Menu Lateral e o segundo é caso o usuário tente marcar um local como favorito sem estar logado. A tela de login é composta por um campo de e-mail e um campo de senha, além de botões para iniciar o processo de registro de uma nova conta ou para recuperar a senha caso o usuário tenha esquecido.
+    A tela de login pode ser alcançada através de 2 fluxos, o primeiro é através do botão de Login na tela de Menu Lateral e o segundo é caso o usuário tente marcar um local como favorito sem estar logado. A tela de login é composta por um campo de e-mail e um campo de senha, além de botões para iniciar o processo de registro de uma nova conta ou para recuperar a senha caso o usuário tenha esquecido. A Figura 11 mostra a tela de login e de cadastro.
 
     \begin{figure}[h]
         \centering
@@ -229,8 +233,10 @@
         \footnotesize  \centering{\textbf{Fonte: Autor original}}
         \label{fig:tela7}
     \end{figure}
+
+    \FloatBarrier
     
-    Caso o usuário entre no processo de recuperação de senha ele deverá informar o email cadastrado e um email será enviado com um código de recuperação, que deverá ser informado numa tela subsequente, caso a verificação seja bem sucedida o usuário poderá definir uma nova senha.
+    Caso o usuário entre no processo de recuperação de senha ele deverá informar o email cadastrado e um email será enviado com um código de recuperação, que deverá ser informado numa tela subsequente, caso a verificação seja bem sucedida o usuário poderá definir uma nova senha. A Figura 12 mostra as telas de recuperação de senha.
     
     \FloatBarrier
 

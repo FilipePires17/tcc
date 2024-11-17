@@ -5,6 +5,8 @@
 \subsection{Análise Crítica e contribuição do Encontre na UFMS}
     Para podermos analisar o diferencial do aplicativo Encontre na UFMS podemos compará-lo com os aplicativos Google Maps e Localização UFMS. O Google Maps é um aplicativo de geolocalização muito utilizado no mundo todo, porém, ele não é focado em um local específico, como o campus da UFMS, e sim em todo o mundo, sendo assim ele não possui registrado diversos locais de menor escala mas que podem ser de grande importância para algum visitante ou alunos. Já o Localização UFMS é um aplicativo web que disponibiliza um mapa interativo da UFMS que possui mais de 2900 pontos de interesse registrados, porém, ele não possui alguns pontos de interesse que podem ser de grande importância para a comunidade acadêmica, como por exemplo, o Restaurante Universitário e também não informa ao usuário como chegar até o local desejado já que ele é focado em apenas mostrar informações sobre um certo local, ele também não tem fotos de todos os locais e não é colaborativo uma vez que apenas a administração da UFMS pode adicionar novos locais.
 
+\newpage
+
 \subsection{Comparação entre o Encontre na UFMS e outros aplicativos}
 \begin{table}[h]
     \begin{tabularx}{\textwidth}{|X|X|X|X|}
@@ -27,7 +29,7 @@
 
     O frontend foi desenvolvido utilizando o framework Flutter, que permite o desenvolvimento de aplicativos móveis para Android e iOS a partir de um único código fonte. O Flutter é uma ferramenta moderna e de fácil utilização, que permite a criação de interfaces de usuário atraentes e responsivas.
 
-    O código foi desenvolvido com base na \textit{Clean Architecture}, que é um padrão de arquitetura de software que visa separar as responsabilidades do código em camadas bem definidas, facilitando a manutenção e a evolução do sistema. A arquitetura do aplicativo foi dividida em três camadas principais: a camada de apresentação, a camada de domínio e a camada de dados. A camada de apresentação é responsável por exibir os dados para o usuário e capturar as interações do usuário com o sistema. A camada de domínio contém as regras de negócio do sistema, enquanto a camada de dados é responsável por acessar os dados do sistema, seja de um banco de dados local ou de uma API remota.
+    O código foi desenvolvido com base na \textit{Clean Architecture} \cite{cleanarchitecture}, que é um padrão de arquitetura de software que visa separar as responsabilidades do código em camadas bem definidas, facilitando a manutenção e a evolução do sistema. A arquitetura do aplicativo foi dividida em três camadas principais: a camada de apresentação, a camada de domínio e a camada de dados. A camada de apresentação é responsável por exibir os dados para o usuário e capturar as interações do usuário com o sistema. A camada de domínio contém as regras de negócio do sistema, enquanto a camada de dados é responsável por acessar os dados do sistema, seja de um banco de dados local ou de uma API remota.
 
     \begin{figure}[h]
         \centering
@@ -39,7 +41,7 @@
 
     \FloatBarrier
 
-    Embora o Flutter seja capaz de gerar aplicativos nativos para Android e iOS, o aplicativo Encontre na UFMS foi desenvolvido apenas para Android, visto que a Apple, dona do sistema operacional iOS, restringe o desenvolvimento para seu sistema caso o desenvolvedor não possua um dispositivo da marca. Mas, em teoria, o aplicativo poderia ser facilmente adaptado para iOS, bastando apenas compilar o código fonte em um ambiente de desenvolvimento da Apple.
+    Embora o Flutter seja capaz de gerar aplicativos nativos para Android e iOS, o aplicativo Encontre na UFMS foi desenvolvido apenas para Android, visto que a Apple, dona do sistema operacional iOS, restringe o desenvolvimento para seu sistema caso o desenvolvedor não possua um dispositivo da marca. Mas, em teoria, o aplicativo poderia ser facilmente adaptado para iOS, bastando apenas compilar o código fonte em um ambiente de desenvolvimento da Apple. O código-fonte do frontend está disponível no repositório em: \textit{Frontend Encontre Na Ufms} \cite{frontend}.
 
 \subsubsection{Backend}
 
@@ -47,7 +49,7 @@
     
     Durante o desenvolvimento, foi utilizado a linguagem de programação Typescript para tipagem de variáveis, classes e objetos, evitando eventuais erros que poderiam ser causados por incompatibilidade de tipos. Para a execução do código utilizando o Node.js, foi utilizado uma ferramenta do TypeScript: "tsc" ou TypeScript Compiler, para transpilação do código-fonte em JavaScript durante o desenvolvimento, enquanto que para ser utilizado em produção, foi utilizado o tsup, uma ferramenta de empacotamento e transpilação de código TypeScript para JavaScript, rápida e eficiente.
 
-    O código foi desenvolvido utilizando o padrão de software MVC ou Model-View-Controller, sendo em português: Modelo-Visão-Controlador. As três camadas se entrelaçam entre si, onde o Controlador recebe as requisições do usuário e as envia para o Modelo, que manipula os dados e faz a conexão com o banco de dados, após, é retornado para o Controlador que envia para a Visão, que exibe as informações ao usuário. Para a comunicação entre o backend e o frontend, foi utilizado uma API REST.
+    O código foi desenvolvido utilizando o padrão de software \textit{MVC ou Model-View-Controller} \cite{mvc}, sendo em português: Modelo-Visão-Controlador. As três camadas se entrelaçam entre si, onde o Controlador recebe as requisições do usuário e as envia para o Modelo, que manipula os dados e faz a conexão com o banco de dados, após, é retornado para o Controlador que envia para a Visão, que exibe as informações ao usuário. Para a comunicação entre o backend e o frontend, foi utilizado uma API REST. O código-fonte do backend está disponível no repositório em: \textit{Backend Encontre Na Ufms} \cite{backend}
 
 \subsubsection{Banco de dados}
     
@@ -56,7 +58,7 @@
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.7\textwidth]{imagens/encontrenaufms.png}
-    \caption{\scriptsize Interface do DBeaver exibindo a estrutura do banco de dados [1].}
+    \caption{\scriptsize Interface do DBeaver exibindo a estrutura do banco de dados \cite{dbeaver}.}
     \footnotesize  \centering{\textbf{Fonte: Autor original}}
     \label{fig:descricaoBancoDeDados}
 \end{figure}
@@ -116,7 +118,7 @@
 
     A tela de listagem de locais é a tela inicial do aplicativo, a primeira e principal tela apresentada para o usuário. Nela, o usuário pode visualizar todos os locais cadastrados no aplicativo, podendo filtrar os locais por categoria e buscar locais através de um campo de pesquisa por texto. 
     
-    Cada local é representado por um segmento contendo a foto, o nome, o endereço, a categoria, se o local está provavelmente fechado naquele horário e um indicador que mostra se o local está marcado como favorito ou não. Cada segmento é clicável, redirecionando o usuário para a tela de detalhes do local. O usuário pode também clicar no indicador de favorito para marcar ou desmarcar o local como favorito caso ele esteja logado, caso não esteja o usuário é redirecionando para a tela de Login que será abordada mais a frente. A listagem de locais é paginada, exibindo 10 locais por vez, uma nova requisição é feita toda vez que o usuário chega ao final da lista, carregando carregando a próxima página caso haja uma.
+    Cada local é representado por um segmento contendo a foto, o nome, o endereço, a categoria, se o local está provavelmente fechado naquele horário e um indicador que mostra se o local está marcado como favorito ou não. Cada segmento é clicável, redirecionando o usuário para a tela de detalhes do local. O usuário pode também clicar no indicador de favorito para marcar ou desmarcar o local como favorito caso ele esteja logado, caso não esteja o usuário é redirecionando para a tela de Login que será abordada mais a frente. A listagem de locais é paginada, exibindo 10 locais por vez, uma nova requisição é feita toda vez que o usuário chega ao final da lista, carregando a próxima página caso haja uma.
 
     Na parte superior da tela há uma seção com um botão, que abre o menu lateral, e um campo de texto para pesquisa. Logo abaixo há um filtro de categorias, uma série de botões que podem ser arrastados horizontalmente, permitindo que o usuário filtre os locais por uma ou mais categorias, de acordo com suas necessidades. Na busca por texto foi aplicado um \textit{debounce} de 1s para evitar que a busca seja feita a cada caractere digitado, o que poderia causar um consumo excessivo de recursos da API. 
 

@@ -4,12 +4,12 @@ Nesta seção, apresentaremos uma visão geral dos principais conceitos e tecnol
 
 \subsection{Requisitos do Sistema}
 
-O aplicativo Encontre na UFMS foi planejado com base em um conjunto de requisitos, focando na experiência do usuário e considerando aspectos como facilidade de uso, acessibilidade e usabilidade. Abaixo, estão listados alguns dos requisitos funcionais descritos no Documento de Requisitos Aplicativo Encontre na UFMS [3]:
+O aplicativo Encontre na UFMS foi planejado com base em um conjunto de requisitos, focando na experiência do usuário e considerando aspectos como facilidade de uso, acessibilidade e usabilidade. Abaixo, estão listados alguns dos requisitos funcionais descritos no \textit{Documento de Requisitos Aplicativo Encontre na UFMS}\cite{documentoRequisitosAplicativoEncontreNaUFMS}:
 
 \begin{itemize}
   \item \textbf{Listagem de pontos importantes}: O sistema deve listar pontos importantes do campus de Campo Grande da UFMS. Exemplo: Blocos Acadêmicos, Bancos, Pontos Turísticos, Restaurantes, etc.
   \item \textbf{Listagem de informações detalhadas}: O sistema deve fornecer informações detalhadas a respeito de um determinado local, tais como: Nome, endereço, telefone, horário de funcionamento, fotos, entre outras informações.
-  \item \textbf{Redirecionamento para o Google Maps}:  O sistema deve oferecer um link que redirecione o usuário para o aplicativo ou página na internet do Google Maps com o endereço do local inserido.
+  \item \textbf{Redirecionamento para o Google Maps}:  O sistema deve oferecer um link que redirecione o usuário para o aplicativo ou página na internet do Google Maps \cite{maps2005} com o endereço do local inserido.
   \item \textbf{Busca de pontos específicos}: O sistema deve permitir que o usuário busque um ponto específico utilizando o nome do local e/ou filtros de busca.
   \item \textbf{Login}: O sistema deve permitir que o usuário faça login, além de possibilitar o cadastro e a recuperação de conta.
   \item \textbf{Favoritar}:  O sistema deve permitir que o usuário favorite os locais de interesse.
@@ -17,47 +17,47 @@ O aplicativo Encontre na UFMS foi planejado com base em um conjunto de requisito
   \item \textbf{Criar e alterar locais}: O sistema deve permitir que usuários façam sugestões para inclusão ou alteração de locais.
 \end{itemize}
 
-O sistema visa oferecer ao usuário uma experiência de busca e localização eficiente, com uma interface amigável e intuitiva que permite navegar e encontrar informações úteis sobre cada local. Além disso, possui funcionalidades como redirecionamento para o Google Maps, a fim de traçar rotas para que o usuário consiga chegar ao local. Também inclui funcionalidades de cadastro, login e recuperação de conta, permitindo ao usuário usufruir de opções como avaliação de locais, favoritá-los e sugerir novos locais ou editar locais existentes no aplicativo.
+O sistema visa oferecer ao usuário uma experiência de busca e localização eficiente, com uma interface amigável e intuitiva que permite navegar e encontrar informações úteis sobre cada local. Além disso, possui funcionalidades como redirecionamento para o Google Maps \cite{maps2005}, a fim de traçar rotas para que o usuário consiga chegar ao local. Também inclui funcionalidades de cadastro, login e recuperação de conta, permitindo ao usuário usufruir de opções como avaliação de locais, favoritá-los e sugerir novos locais ou editar locais existentes no aplicativo.
 
 
 \subsection{Backend: Fastify, Drizzle e MySQL}
-O backend foi desenvolvido utilizando o framework Fastify com Node.js, proporcionando alto desempenho e grande velocidade nas requisições em comparação a outros frameworks, além da facilidade de uso. Foi utilizado TypeScript para aumentar a segurança contra erros de tipagem durante o processo de desenvolvimento.
+O backend foi desenvolvido utilizando o framework \textit{Fastify} \cite{fastify} com \textit{Node.js} \cite{nodejs}, proporcionando alto desempenho e grande velocidade nas requisições em comparação a outros frameworks, além da facilidade de uso. Foi utilizado TypeScript \cite{typescript} para aumentar a segurança contra erros de tipagem durante o processo de desenvolvimento.
 
-Para o armazenamento de dados no backend, foi utilizado o MySQL, um sistema de gerenciamento de banco de dados relacional open-source que oferece confiabilidade e desempenho. A conexão entre o Node.js e o MySQL foi feita utilizando o Drizzle, um mapeador de objetos (ORM) que foca na velocidade e eficiência na entrega de dados entre as duas ferramentas.
+Para o armazenamento de dados no backend, foi utilizado o \textit{MySQL} \cite{mysql}, um sistema de gerenciamento de banco de dados relacional open-source que oferece confiabilidade e desempenho. A conexão entre o Node.js e o MySQL foi feita utilizando o Drizzle \cite{drizzle}, um mapeador de objetos (ORM) que foca na velocidade e eficiência na entrega de dados entre as duas ferramentas.
 
 \subsection{Login}
-Os usuários tem a possibilidade de se cadastrarem no aplicativo, sendo o cadastro um requisito não obrigatório. Para usuários logados no sistema, são utilizados tokens JWT (JSON Web Token) para autenticação, garantindo acesso seguro e eficaz ao sistema.
+Os usuários tem a possibilidade de se cadastrarem no aplicativo, sendo o cadastro um requisito não obrigatório. Para usuários logados no sistema, são utilizados tokens JWT (JSON Web Token) \cite{jwt} para autenticação, garantindo acesso seguro e eficaz ao sistema.
 
-Para o envio de e-mails de recuperação de senha, foi utilizado o MailJet, uma ferramenta que fornece acesso a APIs para envio de e-mails e mensagens de texto (SMS).
+Para o envio de e-mails de recuperação de senha, foi utilizado o \textit{MailJet} \cite{mailjet}, uma ferramenta que fornece acesso a APIs para envio de e-mails e mensagens de texto (SMS).
 
 \subsection{Frontend: Flutter}
-O frontend foi desenvolvido utilizando a ferramenta Flutter, um framework para a linguagem Dart e que pertence ao Google. Tanto o Dart quanto o Flutter foram criados principalmente para possibilitar o desenvolvimento de aplicativos móveis. Por se tratar de uma ferramenta relativamente nova, possui apenas 7 anos desde o seu lançamento, ela se aproveita de vários padrões já bem estabelecidos em outras linguagens e frameworks para criar um ambiente moderno e de fácil adequação para os desenvolvedores.
+O frontend foi desenvolvido utilizando a ferramenta \textit{Flutter} \cite{flutter}, um framework para a linguagem \textit{Dart} \cite{dart} e que pertence ao Google. Tanto o Dart quanto o Flutter foram criados principalmente para possibilitar o desenvolvimento de aplicativos móveis. Por se tratar de uma ferramenta relativamente nova, possui apenas 7 anos desde o seu lançamento, ela se aproveita de vários padrões já bem estabelecidos em outras linguagens e frameworks para criar um ambiente moderno e de fácil adequação para os desenvolvedores.
 
-Uma das grandes preocupações ao se desenvolver um aplicativo móvel é a gerência de possíveis estados enquanto o usuário navega e interage com este aplicativo, como fazer telas conversarem entre si e como manter a experiência o mais contínua e suave possível. Para isso é muito importante separar a apresentação dos dados para o usuário da lógica de negócios que faz todo o tratamento desses dados. A fim de exercer esse papel foi utilizdo o padrão BLoC (Business Logic Component), com a biblioteca flutter\_bloc, que permite acessar todo o estado da aplicação a qualquer momento e também dispara eventos quando certos estados mudam para que a apresentação dos dados esteja sempre atualizada.
+Uma das grandes preocupações ao se desenvolver um aplicativo móvel é a gerência de possíveis estados enquanto o usuário navega e interage com este aplicativo, como fazer telas conversarem entre si e como manter a experiência o mais contínua e suave possível. Para isso é muito importante separar a apresentação dos dados para o usuário da lógica de negócios que faz todo o tratamento desses dados. A fim de exercer esse papel foi utilizdo o padrão BLoC (Business Logic Component), com a biblioteca \textit{flutter\_bloc} \cite{flutterbloc}, que permite acessar todo o estado da aplicação a qualquer momento e também dispara eventos quando certos estados mudam para que a apresentação dos dados esteja sempre atualizada.
 
-Para armazenar localmente o token do usuário logado foi utilizado o Hive, um banco de dados não relacional que tem como principais características a leveza e a rapidez. O mini mapa que é utilizado para mostrar a localização e para cadastrar um novo local facilitando o processo para o usuário foi implementado utilizando a biblioteca google\_maps\_flutter desenvolvido pela própria equipe do Flutter. 
+Para armazenar localmente o token do usuário logado foi utilizado o \textit{Hive} \cite{hive}, um banco de dados não relacional que tem como principais características a leveza e a rapidez. O mini mapa que é utilizado para mostrar a localização e para cadastrar um novo local facilitando o processo para o usuário foi implementado utilizando a biblioteca \textit{google\_maps\_flutter} \cite{googlemapsflutter} desenvolvido pela própria equipe do Flutter. 
 
 \subsection{Ambiente de desenvolvimento: Visual Studio Code}
-O ambiente de desenvolvimento escolhido foi o Visual Studio Code, uma das IDEs mas utilizadas no mundo graças ao grande número de ferramentas que podem ser integradas nela para aumentar as funcionalidades de desenvolvimento, teste e depuração.
+O ambiente de desenvolvimento escolhido foi o \textit{Visual Studio Code} \cite{visualstudiocode}, uma das IDEs mas utilizadas no mundo graças ao grande número de ferramentas que podem ser integradas nela para aumentar as funcionalidades de desenvolvimento, teste e depuração.
 
-Foi utilizado também o Android SDK (Software Development Kit), que é um conjunto de ferramentas que permite o desenvolvimento de aplicativos para a plataforma Android. Ele inclui um depurador, bibliotecas, um emulador de dispositivo baseado em QEMU, documentação, amostras de código e tutoriais.
+Foi utilizado também o \textit{Android SDK (Software Development Kit)} \cite{androidsdk}, que é um conjunto de ferramentas que permite o desenvolvimento de aplicativos para a plataforma Android. Ele inclui um depurador, bibliotecas, um emulador de dispositivo baseado em \textit{QEMU} \cite{QEMU}, documentação, amostras de código e tutoriais.
 
 \subsection{Bibiliotecas e Dependências}
 Diversas bibliotecas e dependências foram utilizadas no desenvolvimento do aplicativo Encontre na UFMS, dentre elas destacam-se:
 
 \begin{itemize}
-  \item \textbf{Fastify}: Framework para desenvolvimento de aplicações web com Node.js.
-  \item \textbf{TypeScript}: Linguagem de programação que extende JavaScript, adicionando tipagem à linguagem.
-  \item \textbf{tsup}: Empacotador de arquivos TypeScript e JavaScript, utilizado para otimizar e gerar builds.
-  \item \textbf{MySQL}: MySQL é um sistema de gerenciamento de banco de dados relacional de código aberto baseado em SQL.
-  \item \textbf{Drizzle}: Mapeador de objetos para conexão entre Node.js e MySQL.
-  \item \textbf{MailJet}: Ferramenta para envio de emails e sms.
-  \item \textbf{Flutter}: Framework para desenvolvimento de aplicativos móveis.
-  \item \textbf{Dart}: Linguagem de programação utilizada no Flutter.
-  \item \textbf{hive}: Banco de dados não relacional utilizado para armazenamento local.
-  \item \textbf{google\_maps\_flutter}: Biblioteca para implementação de mapas no Flutter.
-  \item \textbf{flutter\_bloc}: Biblioteca para gerenciamento de estados no Flutter.
-  \item \textbf{dio}: Biblioteca para requisições HTTP no Flutter.
+  \item \textbf{Fastify}: Framework para desenvolvimento de aplicações web com Node.js \cite{fastify}.
+  \item \textbf{TypeScript}: Linguagem de programação que extende JavaScript, adicionando tipagem à linguagem \cite{typescript}.
+  \item \textbf{tsup}: Empacotador de arquivos TypeScript e JavaScript, utilizado para otimizar e gerar builds \cite{tsup}.
+  \item \textbf{MySQL}: MySQL é um sistema de gerenciamento de banco de dados relacional de código aberto baseado em SQL \cite{mysql}.
+  \item \textbf{Drizzle}: Mapeador de objetos para conexão entre Node.js e MySQL \cite{drizzle}.
+  \item \textbf{MailJet}: Ferramenta para envio de emails e sms \cite{mailjet}.
+  \item \textbf{Flutter}: Framework para desenvolvimento de aplicativos móveis \cite{flutter}.
+  \item \textbf{Dart}: Linguagem de programação utilizada no Flutter \cite{dart}.
+  \item \textbf{hive}: Banco de dados não relacional utilizado para armazenamento local \cite{hive}.
+  \item \textbf{google\_maps\_flutter}: Biblioteca para implementação de mapas no Flutter \cite{googlemapsflutter}.
+  \item \textbf{flutter\_bloc}: Biblioteca para gerenciamento de estados no Flutter \cite{flutterbloc}.
+  \item \textbf{dio}: Biblioteca para requisições HTTP no Flutter \cite{dio}.
 \end{itemize}
 
 Todas essas bibliotecas e dependências, bem como outras que não foram aqui citadas mas encontram-se especificadas nos projetos do frontend e do backend, foram fundamentais para o desenvolvimento do aplicativo Encontre na UFMS, permitindo a implementação de funcionalidades essenciais e a integração entre o backend e o frontend.

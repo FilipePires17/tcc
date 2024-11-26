@@ -19,7 +19,6 @@
         \textbf{Principais Funcionalidades} & Busca de locais, rotas, informações de contato, horários de funcionamento & Busca de locais no campus, informações sobre pontos de interesse & Busca de locais, rotas, cadastro colaborativo de locais, avaliações de locais \\ \hline
     \end{tabularx}
     \caption{Comparação entre aplicativos de localização}
-    \footnotesize  \centering{\textbf{Fonte: Autor original}}
     \label{tab:comparacao-aplicativos}
 \end{table}
 
@@ -61,7 +60,6 @@
     \centering
     \includegraphics[width=0.7\textwidth]{imagens/encontrenaufms.png}
     \caption{\scriptsize Interface do DBeaver exibindo a estrutura do banco de dados \cite{dbeaver}.}
-    \footnotesize  \centering{\textbf{Fonte: Autor original}}
     \label{fig:descricaoBancoDeDados}
 \end{figure}
 
@@ -93,7 +91,7 @@
         \item Os locais favoritos.
     \end{itemize}
 
-    Para a conexão entre o Node.js e o MySQL, foi utilizado o Drizzle que é uma ferramenta de mapeamento de objetos cujo o foco é a velocidade de entrega de dados entre as duas ferramentas. 
+    Para a conexão entre o Node.js e o MySQL, foi utilizado o Drizzle que é uma ferramenta de mapeamento de objetos, cujo o foco é a velocidade de entrega de dados entre as duas ferramentas. 
 
 \subsection{Testes e Execução}
 
@@ -107,7 +105,6 @@
         \centering
         \includegraphics[width=120mm,height=70mm]{imagens/navegacao.png}
         \caption{\scriptsize Diagrama de Navegação}
-        \footnotesize  \centering{\textbf{Fonte: Autor original}}
         \label{fig:diagrama-navegacao}
     \end{figure}
 
@@ -120,7 +117,7 @@
 
     A tela de listagem de locais é a tela inicial do aplicativo, a primeira e principal tela apresentada para o usuário. Nela, o usuário pode visualizar todos os locais cadastrados no aplicativo, podendo filtrar os locais por categoria e buscar locais através de um campo de pesquisa por texto. 
     
-    Cada local é representado por um segmento contendo a foto, o nome, o endereço, a categoria, se o local está provavelmente fechado naquele horário e um indicador que mostra se o local está marcado como favorito ou não. Cada segmento é clicável, redirecionando o usuário para a tela de detalhes do local. O usuário pode também clicar no indicador de favorito para marcar ou desmarcar o local como favorito caso ele esteja logado, caso não esteja o usuário é redirecionando para a tela de Login que será abordada mais a frente. A listagem de locais é paginada, exibindo 10 locais por vez, uma nova requisição é feita toda vez que o usuário chega ao final da lista, carregando a próxima página caso haja uma.
+    Cada local é representado por um segmento contendo a foto, o nome, o endereço, a categoria, se o local está provavelmente fechado naquele horário e um indicador que mostra se o local está marcado como favorito ou não. Cada segmento é clicável, redirecionando o usuário para a tela de detalhes do local. O usuário pode também clicar no indicador de favorito para marcar ou desmarcar o local como favorito caso ele esteja logado, caso não esteja o usuário é redirecionando para a tela de Login que será abordada mais a frente. A listagem de locais é paginada, exibindo 10 locais por vez, uma nova requisição é feita toda vez que o usuário chega ao final da lista, carregando a próxima página, se houver.
 
     Na parte superior da tela há uma seção com um botão, que abre o menu lateral, e um campo de texto para pesquisa. Logo abaixo há um filtro de categorias, uma série de botões que podem ser arrastados horizontalmente, permitindo que o usuário filtre os locais por uma ou mais categorias, de acordo com suas necessidades. Na busca por texto foi aplicado um \textit{debounce} de 1s para evitar que a busca seja feita a cada caractere digitado, o que poderia causar um consumo excessivo de recursos da API. A Figura 4 mostra a tela de listagem de locais.
 
@@ -128,7 +125,6 @@
         \centering
         \includegraphics[width=44mm,height=80mm]{imagens/inicial.jpg}
         \caption{\scriptsize Tela 1: Listagem de Locais}
-        \footnotesize  \centering{\textbf{Fonte: Autor original}}
         \label{fig:tela1}
     \end{figure}
 
@@ -136,13 +132,12 @@
 
 \subsubsection{Tela 2: Local}
 
-    A tela de local é onde todos os detalhes do local selecionado pelo usuário na tela de listagem são apresentados. Nela, o usuário pode visualizar uma ou mais fotos do local, o nome, um indicador que é mostrado caso o local tenha opções de acessibilidade e a avaliação média do local, que é a média das avaliações por outros usuários. Além disso existem 3 abas que o usuário pode navegar sem sair da tela. A aba de localização é a aba inicial e mostra o endereço do local, um mapa com a localização do local indicada e uma seção para o usuário dar sua própria avaliação do local, caso esteja logado. A aba de informações exibe alguns detalhes do local como observações e telefone de contato. Por fim, a aba de Horários exibe os horários de funcionamento do local, caso estejam cadastrados. A Figura 5 mostra a tela de local com a aba de localização, já a Figura 6 apresenta as demais abas.
+    A tela de local apresenta todos os detalhes do local que foi selecionado pelo usuário. Nela, o usuário pode visualizar uma ou mais fotos do local, o nome, um indicador que é mostrado caso o local tenha opções de acessibilidade e a avaliação média do local, que é a média das avaliações por outros usuários. Além disso existem 3 abas que o usuário pode navegar sem sair da tela. A aba de localização é a aba inicial e mostra o endereço do local, um mapa com a localização do local indicada e uma seção para o usuário dar sua própria avaliação do local, caso esteja logado. A aba de informações exibe alguns detalhes do local como observações e telefone de contato. Por fim, a aba de Horários exibe os horários de funcionamento do local, caso estejam cadastrados. A Figura 5 mostra a tela de local com a aba de localização, já a Figura 6 apresenta as demais abas.
 
     \begin{figure}[h]
         \centering
         \includegraphics[width=44mm,height=80mm]{imagens/local.jpg}
         \caption{\scriptsize Tela 2: Local}
-        \footnotesize  \centering{\textbf{Fonte: Autor original}}
         \label{fig:tela2}
     \end{figure}
 
@@ -152,7 +147,6 @@
         \hspace{10mm}
         \includegraphics[width=44mm,height=48mm]{imagens/horario.jpg}
         \caption{\scriptsize Abas: Informações e Horários}
-        \footnotesize  \centering{\textbf{Fonte: Autor original}}
         \label{fig:tela2-abas}
     \end{figure}
 
@@ -170,7 +164,6 @@
         \hspace{10mm}
         \includegraphics[width=44mm,height=80mm]{imagens/menu-lateral-logout.jpg}
         \caption{\scriptsize Tela 2: Menu Lateral (Logado e Deslogado)}
-        \footnotesize  \centering{\textbf{Fonte: Autor original}}
         \label{fig:tela2-logado}
     \end{figure}
 
@@ -184,7 +177,6 @@
         \centering
         \includegraphics[width=44mm,height=80mm]{imagens/perfil.jpg}
         \caption{\scriptsize Tela 4: Perfil}
-        \footnotesize  \centering{\textbf{Fonte: Autor original}}
         \label{fig:tela4}
     \end{figure}
 
@@ -200,7 +192,6 @@
         \hspace{10mm}
         \includegraphics[width=44mm,height=80mm]{imagens/criacao2.jpg}
         \caption{\scriptsize Tela 5: Criação}
-        \footnotesize  \centering{\textbf{Fonte: Autor original}}
         \label{fig:tela5}
     \end{figure}
 
@@ -214,7 +205,6 @@
         \centering
         \includegraphics[width=44mm,height=80mm]{imagens/sobre.jpg}
         \caption{\scriptsize Tela 6: Sobre}
-        \footnotesize  \centering{\textbf{Fonte: Autor original}}
         \label{fig:tela6}
     \end{figure}
 
@@ -222,7 +212,7 @@
 
 \subsubsection{Tela 7: Login}
 
-    A tela de login pode ser alcançada através de 2 fluxos, o primeiro é através do botão de Login na tela de Menu Lateral e o segundo é caso o usuário tente marcar um local como favorito sem estar logado. A tela de login é composta por um campo de e-mail e um campo de senha, além de botões para iniciar o processo de registro de uma nova conta ou para recuperar a senha caso o usuário tenha esquecido. A Figura 11 mostra a tela de login e de cadastro.
+    A tela de login pode ser alcançada através de 2 fluxos, o primeiro é através do botão de Login na tela de Menu Lateral e o segundo é quando o usuário tentar marcar um local como favorito sem estar logado. A tela de login é composta por um campo de e-mail e um campo de senha, além de botões para iniciar o processo de registro de uma nova conta ou para recuperar a senha, caso o usuário tenha esquecido. A Figura 11 mostra a tela de login e de cadastro.
 
     \begin{figure}[h]
         \centering
@@ -230,7 +220,6 @@
         \hspace{10mm}
         \includegraphics[width=44mm,height=80mm]{imagens/registrar.jpg} %tela de registro
         \caption{\scriptsize Tela 7: Login}
-        \footnotesize  \centering{\textbf{Fonte: Autor original}}
         \label{fig:tela7}
     \end{figure}
 
@@ -246,7 +235,6 @@
         \hspace{10mm}
         \includegraphics[width=44mm,height=80mm]{imagens/nova-senha.jpg} %tela de codigo
         \caption{\scriptsize Tela 7: Login}
-        \footnotesize  \centering{\textbf{Fonte: Autor original}}
         \label{fig:tela7-recuperacao}
     \end{figure}
 

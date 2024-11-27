@@ -15,3 +15,61 @@
     O aplicativo auxiliará estudantes, professores, visitantes e demais usuários do campus a se localizarem e a encontrarem informações sobre os prédios e serviços disponíveis. Além disso, o aplicativo permitirá que usuários sugiram adições de novos pontos de interesse e atualizações de informações, contribuindo para a melhoria contínua do aplicativo.
 
 \subsection{Requisitos}
+
+\subsubsection{Metodologia}
+
+    Para o desenvolvimento do aplicativo, foi realizado o levantamento de requisitos através de reuniões com a equipe de desenvolvimento. Novos requisitos se mostraram importantes conforme o avanço do desenvolvimento dos requisitos anteriormente propostos.
+
+\subsubsection{Lista de Atores}
+
+    Foram identificados três tipos de atores:
+
+    \begin{itemize}
+        \item \textbf{Usuário comum não logado}: Tem acesso aos locais e suas respectivas informações, além dos filtros de buscas. Pode se cadastrar, logar ou recuperar o seu perfil de usuário no sistema.
+        \item \textbf{Usuário comum logado}: Tem acesso aos mesmos privilégios do usuário comum não logado, com a adição de: Permissão para alterar informações de seu perfil de usuário, favoritar e avaliar locais, visualizar o registro dos últimos locais acessados, sugerir a adição ou alteração de locais. 
+        \item \textbf{Administrador}: Possui permissões de administrador do sistema, pode adicionar ou alterar locais.
+    \end{itemize}
+
+\subsubsection{Lista de Funcionalidades}
+
+    As funcionalidades desenvolvidas para a aplicação e os atores responsáveis estão registrados na tabela 1:
+
+    \begin{table}[h]
+        \begin{tabularx}{\textwidth}{|X|X|}
+            \hline
+            \textbf{Funcionalidade} & \textbf{Ator(es)} \\ \hline
+            Visualizar informações de locais & Qualquer usuário \\ \hline
+            Buscar ou filtrar por locais & Qualquer usuário \\ \hline
+            Cadastrar conta & Usuário não logado \\ \hline
+            Fazer login & Usuário não logado \\ \hline
+            Recuperar conta & Usuário não logado \\ \hline
+            Editar perfil de usuário & Usuário comum logado e Administrador \\ \hline
+            Favoritar locais & Usuário comum logado e Administrador \\ \hline
+            Avaliar locais & Usuário comum logado e Administrador \\ \hline
+            Visualizar registros de locais acessados & Usuário comum logado e Administrador \\ \hline
+            Sugerir adição ou alteração de locais & Usuário comum logado \\ \hline
+            Adicionar ou alterar locais & Administrador \\ \hline
+        \end{tabularx}
+        \caption{Funcionalidades e Atores do aplicativo Encontre na UFMS}
+        \label{tab:funcionalidades-atores}
+    \end{table}
+\subsubsection{Diagramas de caso de uso}
+
+
+\subsubsection{Especificação dos Requisitos de Software}
+
+    Os requisitos são dividos entre os Requisitos Funcionais e Não-Funcionais. Abaixo, estão listados alguns dos requisitos funcionais descritos no \textit{Documento de Requisitos Aplicativo Encontre na UFMS} \cite{documentoRequisitosAplicativoEncontreNaUFMS}:
+    
+    \begin{itemize}
+      \item \textbf{Listagem de pontos importantes}: O sistema deve listar pontos importantes do campus de Campo Grande da UFMS. Exemplo: Blocos Acadêmicos, Bancos, Pontos Turísticos, Restaurantes, etc.
+      \item \textbf{Listagem de informações detalhadas}: O sistema deve fornecer informações detalhadas a respeito de um determinado local, tais como: Nome, endereço, telefone, horário de funcionamento, fotos, entre outras informações.
+      \item \textbf{Redirecionamento para o Google Maps}:  O sistema deve oferecer um link que redirecione o usuário para o aplicativo ou página na internet do Google Maps \cite{maps2005} com o endereço do local inserido.
+      \item \textbf{Busca de pontos específicos}: O sistema deve permitir que o usuário busque um ponto específico utilizando o nome do local e/ou filtros de busca.
+      \item \textbf{Login}: O sistema deve permitir que o usuário faça login, além de possibilitar o cadastro e a recuperação de conta.
+      \item \textbf{Favoritar}:  O sistema deve permitir que o usuário favorite os locais de interesse.
+      \item \textbf{Avaliar}:  O sistema deve permitir que o usuário avalie os locais, utilizando uma escala de 1 a 5 estrelas.
+      \item \textbf{Criar e alterar locais}: O sistema deve permitir que usuários façam sugestões para inclusão ou alteração de locais.
+    \end{itemize}
+    
+    O sistema visa oferecer ao usuário uma experiência de busca e localização eficiente, com uma interface amigável e intuitiva que permite navegar e encontrar informações úteis sobre cada local. Além disso, possui funcionalidades como redirecionamento para o Google Maps \cite{maps2005}, a fim de traçar rotas para que o usuário consiga chegar ao local. Também inclui funcionalidades de cadastro, login e recuperação de conta, permitindo ao usuário usufruir de opções como avaliação de locais, favoritá-los e sugerir novos locais ou editar locais existentes no aplicativo.
+    

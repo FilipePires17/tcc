@@ -3,33 +3,13 @@
 
     O aplicativo Encontre na UFMS foi desenvolvido com o intuito de facilitar a navegação pelo campus da UFMS em Campo Grande, permitindo que usuários encontrem e localizem pontos de interesse dentro do campus, estes sendo cadastrados por outros usuários, possibilitando que locais que não estão presentes em outros aplicativos de localização sejam documentados e compartilhados com a comunidade acadêmica. Os usuários também terão poder de avaliar os locais cadastrados, podendo assim, ajudar outros usuários a escolherem o melhor local para suas necessidades.
 
-\subsection{Análise Crítica e contribuição do Encontre na UFMS}
-    Para podermos analisar o diferencial do aplicativo Encontre na UFMS podemos compará-lo com os aplicativos Google Maps e Localização UFMS. O Google Maps é um aplicativo de geolocalização muito utilizado no mundo todo, porém, ele não é focado em um local específico, como o campus da UFMS, e sim em todo o mundo, sendo assim ele não possui registrado diversos locais de menor escala mas que podem ser de grande importância para algum visitante ou alunos. Já o Localização UFMS é um aplicativo web que disponibiliza um mapa interativo da UFMS que possui mais de 2900 pontos de interesse registrados, porém, ele não possui alguns pontos de interesse que podem ser de grande importância para a comunidade acadêmica, como por exemplo, o Restaurante Universitário e também não informa ao usuário como chegar até o local desejado já que ele é focado em apenas mostrar informações sobre um certo local, ele também não tem fotos de todos os locais e não é colaborativo uma vez que apenas a administração da UFMS pode adicionar novos locais.
-
-\newpage
-
-\subsection{Comparação entre o Encontre na UFMS e outros aplicativos}
-    A Tabela 2 apresenta uma comparação entre os aplicativos Google Maps, Localização UFMS e Encontre na UFMS, destacando as principais características de cada aplicativo.
-
-\begin{table}[h]
-    \begin{tabularx}{\textwidth}{|X|X|X|X|}
-        \hline
-        \textbf{Características} & \textbf{Google Maps} & \textbf{Localização UFMS} & \textbf{Encontre na UFMS} \\ \hline
-        \textbf{Objetivo Principal} & Geolocalização global & Mapa interativo da UFMS & Navegação pelo campus da UFMS \\ \hline
-        \textbf{Público-Alvo} & Usuários em geral & Comunidade acadêmica da UFMS & Comunidade acadêmica da UFMS \\ \hline
-        \textbf{Principais Funcionalidades} & Busca de locais, rotas, informações de contato, horários de funcionamento & Busca de locais no campus, informações sobre pontos de interesse & Busca de locais, rotas, cadastro colaborativo de locais, avaliações de locais \\ \hline
-    \end{tabularx}
-    \caption{Comparação entre aplicativos de localização}
-    \label{tab:comparacao-aplicativos}
-\end{table}
-
 \subsection{Implementação}
 
     O desenvolvimento do aplicativo Encontre na UFMS foi dividido em duas partes principais: o backend e o frontend. Trataremos a seguir de cada uma dessas partes, detalhando as tecnologias utilizadas e as funcionalidades implementadas.
 
 \subsubsection{Frontend}
 
-    O frontend foi desenvolvido utilizando o framework Flutter, que permite o desenvolvimento de aplicativos móveis para Android e iOS a partir de um único código fonte. O Flutter é uma ferramenta moderna e de fácil utilização, que permite a criação de interfaces de usuário atraentes e responsivas.
+    O frontend foi desenvolvido utilizando a ferramenta \textit{Flutter} \cite{flutter}, um framework para a linguagem \textit{Dart} \cite{dart} e que pertence ao Google. Tanto o Dart quanto o Flutter foram criados principalmente para possibilitar o desenvolvimento de aplicativos móveis. Por se tratar de uma ferramenta relativamente nova, possui apenas 7 anos desde o seu lançamento, ela se aproveita de vários padrões já bem estabelecidos em outras linguagens e frameworks para criar um ambiente moderno e de fácil adequação para os desenvolvedores.
 
     A arquitetura do aplicativo foi dividida em três camadas principais: a camada de apresentação, a camada de domínio e a camada de dados. A camada de apresentação é responsável por exibir os dados para o usuário e capturar as interações do usuário com o sistema. A camada de domínio contém as regras de negócio do sistema, enquanto a camada de dados é responsável por acessar os dados do sistema, seja de um banco de dados local ou de uma API remota. Essa divisão de camadas é ilustrada na Figura 5.
 
@@ -45,9 +25,15 @@
 
     Embora o Flutter seja capaz de gerar aplicativos nativos para Android e iOS, o aplicativo Encontre na UFMS foi desenvolvido apenas para Android, visto que a Apple, dona do sistema operacional iOS, restringe o desenvolvimento para seu sistema caso o desenvolvedor não possua um dispositivo da marca. Mas, em teoria, o aplicativo poderia ser facilmente adaptado para iOS, bastando apenas compilar o código fonte em um ambiente de desenvolvimento da Apple. O código-fonte do frontend está disponível no repositório em: \textit{Frontend Encontre Na Ufms} \cite{frontend}.
 
+    Uma das grandes preocupações ao se desenvolver um aplicativo móvel é a gerência de possíveis estados enquanto o usuário navega e interage com este aplicativo, como fazer telas conversarem entre si e como manter a experiência o mais contínua e suave possível. Para isso é muito importante separar a apresentação dos dados para o usuário da lógica de negócios que faz todo o tratamento desses dados. A fim de exercer esse papel foi utilizdo o padrão BLoC (Business Logic Component), com a biblioteca \textit{flutter\_bloc} \cite{flutterbloc}, que permite acessar todo o estado da aplicação a qualquer momento e também dispara eventos quando certos estados mudam para que a apresentação dos dados esteja sempre atualizada.
+
+    Para armazenar localmente o token do usuário logado foi utilizado o \textit{Hive} \cite{hive}, um banco de dados não relacional que tem como principais características a leveza e a rapidez. O mini mapa que é utilizado para mostrar a localização e para cadastrar um novo local facilitando o processo para o usuário foi implementado utilizando a biblioteca \textit{google\_maps\_flutter} \cite{googlemapsflutter} desenvolvido pela própria equipe do Flutter. 
+
 \subsubsection{Backend}
 
-    O backend foi desenvolvido utilizando o framework Fastify, a fim de garantir excelente desempenho mesmo com um grande volume de requisições, permitindo escalabilidade sem perder a segurança. Foi programado utilizando o Node.js, uma ferramenta que permite a execução de código JavaScript em um ambiente fora do navegador, com excelente desempenho e confiabilidade. 
+    O backend foi desenvolvido utilizando o framework Fastify, a fim de garantir excelente desempenho mesmo com um grande volume de requisições, permitindo escalabilidade sem perder a segurança. Foi programado utilizando o Node.js, uma ferramenta que permite a execução de código JavaScript em um ambiente fora do navegador, com excelente desempenho e confiabilidade.
+    % prefiro o segundo texto
+    O backend foi desenvolvido utilizando o framework \textit{Fastify} \cite{fastify} com \textit{Node.js} \cite{nodejs}, proporcionando alto desempenho e grande velocidade nas requisições em comparação a outros frameworks, além da facilidade de uso. Foi utilizado \textit{TypeScript} \cite{typescript} para aumentar a segurança contra erros de tipagem durante o processo de desenvolvimento.
     
     Durante o desenvolvimento, foi utilizado a linguagem de programação Typescript para tipagem de variáveis, classes e objetos, evitando eventuais erros que poderiam ser causados por incompatibilidade de tipos. Para a execução do código utilizando o Node.js, foi utilizado uma ferramenta do TypeScript: "tsc" ou TypeScript Compiler, para transpilação do código-fonte em JavaScript durante o desenvolvimento, enquanto que para ser utilizado em produção, foi utilizado o tsup, uma ferramenta de empacotamento e transpilação de código TypeScript para JavaScript, rápida e eficiente.
 
@@ -56,6 +42,8 @@
 \subsubsection{Banco de dados}
     
     Foi utilizado o MySQL, um Sistema de Gerenciamento de Banco de Dados Relacional baseado em SQL, para armazenar e gerenciar os dados do sistema.  Na imagem abaixo, está descrita a estrutura do banco de dados do aplicativo Encontre na UFMS.
+    %tambem prefiro o segundo, apagando o texto lá embaixo
+    Para o armazenamento de dados no backend, foi utilizado o \textit{MySQL} \cite{mysql}, um sistema de gerenciamento de banco de dados relacional open-source que oferece confiabilidade e desempenho. A conexão entre o Node.js e o MySQL foi feita utilizando o \textit{Drizzle} \cite{drizzle}, um mapeador de objetos (ORM) que foca na velocidade e eficiência na entrega de dados entre as duas ferramentas.
 
 \begin{figure}[h]
     \centering
@@ -92,7 +80,37 @@
         \item Os locais favoritos.
     \end{itemize}
 
-    Para a conexão entre o Node.js e o MySQL, foi utilizado o Drizzle que é uma ferramenta de mapeamento de objetos, cujo o foco é a velocidade de entrega de dados entre as duas ferramentas. 
+    Para a conexão entre o Node.js e o MySQL, foi utilizado o Drizzle que é uma ferramenta de mapeamento de objetos, cujo o foco é a velocidade de entrega de dados entre as duas ferramentas.
+
+\subsection{Login}
+    Os usuários tem a possibilidade de se cadastrarem no aplicativo, sendo o cadastro um requisito não obrigatório. Para usuários logados no sistema, são utilizados tokens \textit{JWT (JSON Web Token)} \cite{jwt} para autenticação, garantindo acesso seguro e eficaz ao sistema.
+    
+    Para o envio de e-mails de recuperação de senha, foi utilizado o \textit{MailJet} \cite{mailjet}, uma ferramenta que fornece acesso a APIs para envio de e-mails e mensagens de texto (SMS).
+
+\subsection{Ambiente de desenvolvimento: Visual Studio Code}
+    O ambiente de desenvolvimento escolhido foi o \textit{Visual Studio Code} \cite{visualstudiocode}, uma das IDEs mas utilizadas no mundo graças ao grande número de ferramentas que podem ser integradas nela para aumentar as funcionalidades de desenvolvimento, teste e depuração.
+    
+    Foi utilizado também o \textit{Android SDK (Software Development Kit)} \cite{androidsdk}, que é um conjunto de ferramentas que permite o desenvolvimento de aplicativos para a plataforma Android. Ele inclui um depurador, bibliotecas, um emulador de dispositivo baseado em \textit{QEMU} \cite{QEMU}, documentação, amostras de código e tutoriais.
+    
+\subsection{Bibiliotecas e Dependências}
+    Diversas bibliotecas e dependências foram utilizadas no desenvolvimento do aplicativo Encontre na UFMS, dentre elas destacam-se:
+    
+    \begin{itemize}
+      \item \textbf{Fastify}: Framework para desenvolvimento de aplicações web com Node.js \cite{fastify}.
+      \item \textbf{TypeScript}: Linguagem de programação que extende JavaScript, adicionando tipagem à linguagem \cite{typescript}.
+      \item \textbf{tsup}: Empacotador de arquivos TypeScript e JavaScript, utilizado para otimizar e gerar builds \cite{tsup}.
+      \item \textbf{MySQL}: MySQL é um sistema de gerenciamento de banco de dados relacional de código aberto baseado em SQL \cite{mysql}.
+      \item \textbf{Drizzle}: Mapeador de objetos para conexão entre Node.js e MySQL \cite{drizzle}.
+      \item \textbf{MailJet}: Ferramenta para envio de emails e sms \cite{mailjet}.
+      \item \textbf{Flutter}: Framework para desenvolvimento de aplicativos móveis \cite{flutter}.
+      \item \textbf{Dart}: Linguagem de programação utilizada no Flutter \cite{dart}.
+      \item \textbf{hive}: Banco de dados não relacional utilizado para armazenamento local \cite{hive}.
+      \item \textbf{google\_maps\_flutter}: Biblioteca para implementação de mapas no Flutter \cite{googlemapsflutter}.
+      \item \textbf{flutter\_bloc}: Biblioteca para gerenciamento de estados no Flutter \cite{flutterbloc}.
+      \item \textbf{dio}: Biblioteca para requisições HTTP no Flutter \cite{dio}.
+    \end{itemize}
+    
+    Todas essas bibliotecas e dependências, bem como outras que foram especificadas nos projetos do frontend e do backend, foram fundamentais para o desenvolvimento do aplicativo Encontre na UFMS, permitindo a implementação de funcionalidades essenciais e a integração entre o backend e o frontend.
 
 \subsection{Testes e Execução}
 

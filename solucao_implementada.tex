@@ -31,8 +31,7 @@
 
 \subsubsection{Backend}
 
-    O backend foi desenvolvido utilizando o framework Fastify, a fim de garantir excelente desempenho mesmo com um grande volume de requisições, permitindo escalabilidade sem perder a segurança. Foi programado utilizando o Node.js, uma ferramenta que permite a execução de código JavaScript em um ambiente fora do navegador, com excelente desempenho e confiabilidade.
-    % prefiro o segundo texto
+
     O backend foi desenvolvido utilizando o framework \textit{Fastify} \cite{fastify} com \textit{Node.js} \cite{nodejs}, proporcionando alto desempenho e grande velocidade nas requisições em comparação a outros frameworks, além da facilidade de uso. Foi utilizado \textit{TypeScript} \cite{typescript} para aumentar a segurança contra erros de tipagem durante o processo de desenvolvimento.
     
     Durante o desenvolvimento, foi utilizado a linguagem de programação Typescript para tipagem de variáveis, classes e objetos, evitando eventuais erros que poderiam ser causados por incompatibilidade de tipos. Para a execução do código utilizando o Node.js, foi utilizado uma ferramenta do TypeScript: "tsc" ou TypeScript Compiler, para transpilação do código-fonte em JavaScript durante o desenvolvimento, enquanto que para ser utilizado em produção, foi utilizado o tsup, uma ferramenta de empacotamento e transpilação de código TypeScript para JavaScript, rápida e eficiente.
@@ -47,7 +46,7 @@
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.7\textwidth]{imagens/encontrenaufms.png}
+    \includegraphics[width=1.1\textwidth]{imagens/encontrenaufms.png}
     \caption{\scriptsize Interface do DBeaver exibindo a estrutura do banco de dados \cite{dbeaver}.}
     \label{fig:descricaoBancoDeDados}
 \end{figure}
@@ -114,7 +113,9 @@
 
 \subsection{Testes e Execução}
 
-    O aplicativo Encontre na UFMS foi testado em diversos dispositivos Android, a fim de garantir a compatibilidade e o bom funcionamento em diferentes tamanhos de tela e versões do sistema operacional. Foi utilizado o emulador do Android Studio para testar o aplicativo no Pixel 6a na API 33 do Android mas foi principalmente testado em dispositivos físicos, como o Galaxy S21 fe e Xiaomi Note 8 Pro, pela facilidade de uso e para poder verificar a usabilidade real do aplicativo em todo momento.
+    O aplicativo Encontre na UFMS foi testado apenas por nós em diversos dispositivos Android, sendo alguns deles dispositivos físicos aos quais possuímos e outros emulados, a fim de garantir a compatibilidade e o bom funcionamento em diferentes tamanhos de tela e versões do sistema operacional. Foi utilizado o emulador do Android Studio para testar o aplicativo no Pixel 6a na API 33 do Android mas foi principalmente testado em dispositivos físicos, como o Galaxy S21 fe e Xiaomi Note 8 Pro, pela facilidade de uso e para poder verificar a usabilidade real do aplicativo em todo momento.
+    
+    Os testes foram feitos utilizando as principais funcionalidades do aplicativo, na sequência dos items descritos na tabela 1, sendo que a maior parte dos testes foram feitos realizando repetidas ações que de carregamento de informações, que resultam em novas chamadas de API para o backend, garantindo a consistência do backend em receber a requisição e tratá-la corretamente para retornar os dados ao frontend, além de garantir a consistência do frontend em fazer as requisições para a API corretamente e ao apresentar os dados recebidos ao usuário de forma visual.
 
 \subsubsection{Diagrama de Navegação}
 

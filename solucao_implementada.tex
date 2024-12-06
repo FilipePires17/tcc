@@ -31,17 +31,24 @@
 
 \subsubsection{Backend}
 
-
     O backend foi desenvolvido utilizando o framework \textit{Fastify} \cite{fastify} com \textit{Node.js} \cite{nodejs}, proporcionando alto desempenho e grande velocidade nas requisições em comparação a outros frameworks, além da facilidade de uso. Foi utilizado \textit{TypeScript} \cite{typescript} para aumentar a segurança contra erros de tipagem durante o processo de desenvolvimento.
     
     Durante o desenvolvimento, foi utilizado a linguagem de programação Typescript para tipagem de variáveis, classes e objetos, evitando eventuais erros que poderiam ser causados por incompatibilidade de tipos. Para a execução do código utilizando o Node.js, foi utilizado uma ferramenta do TypeScript: "tsc" ou TypeScript Compiler, para transpilação do código-fonte em JavaScript durante o desenvolvimento, enquanto que para ser utilizado em produção, foi utilizado o tsup, uma ferramenta de empacotamento e transpilação de código TypeScript para JavaScript, rápida e eficiente.
 
-    O código foi desenvolvido utilizando o padrão de software \textit{MVC ou Model-View-Controller} \cite{mvc}, sendo em português: Modelo-Visão-Controlador. As três camadas se entrelaçam entre si, onde o Controlador recebe as requisições do usuário e as envia para o Modelo, que manipula os dados e faz a conexão com o banco de dados, após, é retornado para o Controlador que envia para a Visão, que exibe as informações ao usuário. Para a comunicação entre o backend e o frontend, foi utilizado uma API REST. O código-fonte do backend está disponível no repositório em: \textit{Backend Encontre Na Ufms} \cite{backend}
+    O código foi desenvolvido em um padrão de camadas, similar ao padrão Controller Service Repository (CSR), ou Controlador-Serviço-Repositório, onde a camada do Controlador recebe as requisições HTTP e as passa para a camada de Serviço, onde a lógica de negócio está presente, depois, acessa a camada Repositorio que é responsável por acessar os dados. A arquitetura implementada no backend possui uma camada de Model ou Modelo ao invés da Repositório, que contêm a descrição da estruturação do banco de dados e é responsável pela manipulação dos dados, sendo a representação da arquitetura utilizada simular a figura 2. 
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=1\textwidth]{imagens/csrM.jpg}
+        \caption{\scriptsize Exemplificação de arquitetura CSR com Model}
+        \footnotesize  \centering{\textbf{Fonte: Services \cite{csrM}}}
+        \label{fig:csrModel}
+    \end{figure}
+
+    Para a comunicação entre o backend e o frontend, foi utilizado uma API REST. O código-fonte do backend está disponível no repositório em: \textit{Backend Encontre Na Ufms} \cite{backend}
 
 \subsubsection{Banco de dados}
     
-    Foi utilizado o MySQL, um Sistema de Gerenciamento de Banco de Dados Relacional baseado em SQL, para armazenar e gerenciar os dados do sistema.  Na imagem abaixo, está descrita a estrutura do banco de dados do aplicativo Encontre na UFMS.
-    %tambem prefiro o segundo, apagando o texto lá embaixo
     Para o armazenamento de dados no backend, foi utilizado o \textit{MySQL} \cite{mysql}, um sistema de gerenciamento de banco de dados relacional open-source que oferece confiabilidade e desempenho. A conexão entre o Node.js e o MySQL foi feita utilizando o \textit{Drizzle} \cite{drizzle}, um mapeador de objetos (ORM) que foca na velocidade e eficiência na entrega de dados entre as duas ferramentas.
 
 \begin{figure}[h]
